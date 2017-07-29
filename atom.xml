@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-07-18T07:10:26.000Z</updated>
+  <updated>2017-07-29T14:51:38.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -14,6 +14,146 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android View事件分发机制</title>
+    <link href="http://LiJiang.com/2017/07/29/Android-View%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6/"/>
+    <id>http://LiJiang.com/2017/07/29/Android-View事件分发机制/</id>
+    <published>2017-07-29T14:49:35.000Z</published>
+    <updated>2017-07-29T14:51:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#概述<br>事件分发机制主要说的是当MotionEvent事件产生后，系统需要把它分发到一个具体的View进行处理，而MotionEvent就是要分发的事件对象这个传递的过程就是分发过程。</p>
+<p>#MotionEvent事件<br>MotionEvent对象描述的是与用户触摸状态相关的时间序列，该序列从用户首次触摸屏幕开始，经历手指在屏幕表面的任何移动，直到手指离开屏幕时结束。手指的初次触摸(ACTION_DOWN操作)，滑动(ACTION_MOVE操作)和抬起(ACTION_UP)都会创建MotionEvent对象  </p>
+<ul>
+<li><p>常用的事件</p>
+<p>  | 事件        | 说明                      |<br>  | ————- |:——————-:|<br>  | ACTION_DOWN      | 手指 初次接触到屏幕 时触发 |<br>  | ACTION_MOVE          | 手指 在屏幕上滑动 时触发，会多次触发      |<br>  | ACTION_UP     | 手指 离开屏幕 时触发          |<br>  | ACTION_CANCEL|事件 被上层拦截 时触发      |<br>  | ACTION_OUTSIDE|手指 不在控件区域 时触发   |<br>  | ACTION_POINTER_DOWN|有非主要的手指按下(即按下之前已经有手指在屏幕上，用于多点触碰)|<br>  |ACTION_POINTER_UP    |有非主要的手指抬起(即抬起之后仍然有手指在屏幕上，用于多点触碰)|  </p>
+<p>  一次简单的触摸事件：<br>  手指落下(ACTION_DOWN) －&gt; 多次移动(ACTION_MOVE) －&gt; 离开(ACTION_UP)<br>  ACTION_MOVE 有多次触发，如果仅仅是单击(手指按下再抬起)，不会触发 ACTION_MOVE。针对这样一次触摸事件一般这样处理：  </p>
+<pre><code class="java">  <span class="meta">@Override</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>{
+  <span class="keyword">switch</span> (event.getAction()){
+      <span class="keyword">case</span> MotionEvent.ACTION_DOWN:
+          <span class="comment">// 手指按下</span>
+          <span class="keyword">break</span>;
+      <span class="keyword">case</span> MotionEvent.ACTION_MOVE:
+          <span class="comment">// 手指移动</span>
+          <span class="keyword">break</span>;
+      <span class="keyword">case</span> MotionEvent.ACTION_UP:
+          <span class="comment">// 手指抬起</span>
+          <span class="keyword">break</span>;
+      <span class="keyword">case</span> MotionEvent.ACTION_CANCEL:
+          <span class="comment">// 事件被拦截 </span>
+          <span class="keyword">break</span>;
+      <span class="keyword">case</span> MotionEvent.ACTION_OUTSIDE:
+          <span class="comment">// 超出区域 </span>
+          <span class="keyword">break</span>;
+  }
+  <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(event);
+}
+</code></pre>
+</li>
+</ul>
+<p>#事件分发过程<br>Android上的View是树形结构一层一层嵌套叠加在一起的，这种情况下用户点击时就会出现有多个View可以响应，这时就需要事件分发机制，如下图所示：</p>
+<div align="center"><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/005Xtdi2jw1f87nsnluf5j308c0eamxg-2.jpg?raw=true" alt="=" title="">
+                </div>
+                <div class="image-caption">=</div>
+            </figure><br></div> 
+
+<ul>
+<li>View的结构和关系  <div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-2812.25.06.png?raw=true" width="480" height="450" alt="图片名称" align="center"><br></div><br><div align="center"><br>结构图<br></div>     
+
+</li>
+</ul>
+<div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-28%2011.50.36.png?raw=true" width="300" height="450" alt="图片名称" align="center"><br></div>  
+
+<div align="center"><br>关系图<br></div>  
+
+<p>###PhoneWindow 和 DecorView </p>
+<blockquote>
+<p>PhoneWindow类继承于Window类，是Window类的具体实现，即我们可以通过该类具体去绘制窗口。并且，该类内部包含了一个DecorView对象，该DectorView对象是所有应用窗口(Activity界面)的根View。 简而言之，PhoneWindow类是把一个FrameLayout类即DecorView对象进行一定的包装，将它作为应用窗口的根View，并提供一组通用的窗口操作接口。<br>DecorView类是PhoneWindow类的内部类。该类是一个FrameLayout的子类，并且是PhoneWindow的子类，该类就是对普通的FrameLayout进行功能的扩展，更确切点可以说是修饰(Decor的英文全称是Decoration，即“修饰”的意思)，比如说添加TitleBar(标题栏)，以及TitleBar上的滚动条等 。最重要的一点是，它是所有应用窗口的根View 。  </p>
+</blockquote>
+<p>见类图：<br> <div align="center"><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/108817-20161124172233487-1624168604.jpg?raw=true" alt="=" title="">
+                </div>
+                <div class="image-caption">=</div>
+            </figure><br></div>   </p>
+<p>###事件分发机制的代码分析<br>事件的分发、拦截、处理分别对应三个方法dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent  </p>
+<ul>
+<li>事件的分发：dispatchTouchEvent<br>如果事件能够传递给当前的View，那么此方法一定会调用返回结果受当前View的onTouchEvent和下级View的dispatchTouchEvent方法的影响，表示是否消耗当前事件。  </li>
+<li>事件拦截：onInterceptTouchEvent<br>上述方法用来判断是否拦截某个事件，如果当前View拦截了某个事件，那么在同一个事件序列中此方法不会再调用，返回结果代表是否拦截事件。</li>
+<li>事件处理：onTouchEvent<br>在dispatchTouchEvent方法中调用，用来处理点击事件，返回结果表示是否消耗当前事件，如果不消耗，则在同一个事件序列中，当前View无法再次接收到事件。   </li>
+</ul>
+<blockquote>
+<p>Activity和View只有dispatchTouchEvent、onTouchEvent方法没有onInterceptTouchEvent方法，因为Activity 作为原始的事件分发者，如果 Activity 拦截了事件会导致整个屏幕都无法响应事件，这肯定不是我们想要的效果，而View做为事件传递的最末端，要么消费掉事件，要么不处理进行回传，根本没必要进行事件拦截。  </p>
+</blockquote>
+<ul>
+<li><p>事件分发流程<br>事件收集之后最先传递给 Activity， 然后依次向下传递。如果最后分发到View，如果这个View也没有处理事件怎么办，如果没有任何View消费掉事件，那么这个事件会按照反方向回传，最终传回给Activity，如果最后 Activity 也没有处理，本次事件才会被抛弃，如下图：   </p>
+<div align="center"><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-2710.33.04.png?raw=true" alt="=" title="">
+                </div>
+                <div class="image-caption">=</div>
+            </figure><br></div>  
+</li>
+<li><p>View的事件分发伪代码如下： </p>
+</li>
+</ul>
+<pre><code class="java"><span class="comment">/** 把事件分发到目标对象，因为这里是View对象，默认不含有child，所以这里他会把事件分发给自己 */</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent event)</span></span>{
+    <span class="keyword">boolean</span> result = <span class="keyword">false</span>;
+    <span class="comment">//如果有事件监听器，先让监听器处理事件。</span>
+    <span class="keyword">if</span> (mOnTouchListener.onTouch(event)) {
+        <span class="comment">//如果监听器成功处理了该事件，处理结果设置为true。</span>
+        result = <span class="keyword">true</span>;
+    }
+    <span class="comment">//如果没有监听器，就调用自身的onTouchEvent方法来处理事件。</span>
+    <span class="keyword">if</span> (!resutlt &amp;&amp; onTouchEvent(event)) {
+        <span class="comment">//如果自身的onTouchEvent成功处理事件，处理结果设置为true。</span>
+        result = <span class="keyword">true</span>;
+    }
+    <span class="keyword">return</span> result;
+}
+</code></pre>
+<ul>
+<li>ViewGroup 的事件分发机制伪代码如下:</li>
+</ul>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>{
+    <span class="keyword">boolean</span> result = <span class="keyword">false</span>;             <span class="comment">// 默认状态为没有消费过</span>
+
+    <span class="keyword">if</span> (!onInterceptTouchEvent(ev)) {   <span class="comment">// 如果没有拦截交给子View</span>
+        result = child.dispatchTouchEvent(ev);
+    }
+
+    <span class="keyword">if</span> (!result) {                      <span class="comment">// 如果事件没有被消费,询问自身onTouchEvent</span>
+        result = onTouchEvent(ev);
+    }
+
+    <span class="keyword">return</span> result;
+}
+</code></pre>
+<p>#总结<br>事件分发机制遵循几点原则：  </p>
+<ol>
+<li>同一个事件系列从手指接触屏幕的那一刻起到手指离开屏幕的那一刻结束。体现在程序上以down事件开始中间含有不定数量的move事件，最终以up事件结束。  </li>
+<li>如果事件被消费就意味着事件信息的传递终止。  </li>
+<li>如果事件一直没有被消费，最后还会传给Activity，如果Activity也不需要才会被抛弃。  </li>
+<li>某个对象一但开始处理事件，那么这一事件序列那么系统都会交由它来处理，如果是GroupView那么onInterceptTouchEvent不会再调用。<br> View的事件分发机制实际上是一个非常经典的责任链模式即当有多个对象可以处理同一个请求时，把这些对象串联成一条链，并沿着这条链传递请求，直到有对象处理它为止。阅读本文可以对事件分发机制有一个整体的了解，更加详细的内容可以研读android事件分发的源码。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#概述&lt;br&gt;事件分发机制主要说的是当MotionEvent事件产生后，系统需要把它分发到一个具体的View进行处理，而MotionEvent就是要分发的事件对象这个传递的过程就是分发过程。&lt;/p&gt;
+&lt;p&gt;#MotionEvent事件&lt;br&gt;MotionEvent对象描述的
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
