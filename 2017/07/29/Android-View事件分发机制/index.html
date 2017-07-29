@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-28%2011.50.36.png?raw=true">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/108817-20161124172233487-1624168604.jpg?raw=true">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-2710.33.04.png?raw=true">
-<meta property="og:updated_time" content="2017-07-29T15:41:40.000Z">
+<meta property="og:updated_time" content="2017-07-29T15:44:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android View事件分发机制">
 <meta name="twitter:description" content="概述事件分发机制主要说的是当MotionEvent事件产生后，系统需要把它分发到一个具体的View进行处理，而MotionEvent就是要分发的事件对象这个传递的过程就是分发过程。 MotionEvent事件MotionEvent对象描述的是与用户触摸状态相关的时间序列，该序列从用户首次触摸屏幕开始，经历手指在屏幕表面的任何移动，直到手指离开屏幕时结束。手指的初次触摸(ACTION_DOWN操作)">
@@ -190,31 +190,9 @@
             <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>事件分发机制主要说的是当MotionEvent事件产生后，系统需要把它分发到一个具体的View进行处理，而MotionEvent就是要分发的事件对象这个传递的过程就是分发过程。</p>
 <h1 id="MotionEvent事件"><a href="#MotionEvent事件" class="headerlink" title="MotionEvent事件"></a>MotionEvent事件</h1><p>MotionEvent对象描述的是与用户触摸状态相关的时间序列，该序列从用户首次触摸屏幕开始，经历手指在屏幕表面的任何移动，直到手指离开屏幕时结束。手指的初次触摸(ACTION_DOWN操作)，滑动(ACTION_MOVE操作)和抬起(ACTION_UP)都会创建MotionEvent对象  </p>
 <ul>
-<li><p>常用的事件<br><table><tbody><br>  <tr></tr></tbody></table></p>
-<pre><code>&lt;th&gt;事件&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-</code></pre><p>  <br>  <tr></tr></p>
-<pre><code>&lt;th&gt; ACTION_DOWN &lt;/th&gt;
-&lt;th&gt;手指初次接触到屏幕时触发&lt;/th&gt;
-</code></pre><p>  <br>  <tr></tr></p>
-<pre><code>   &lt;th&gt; ACTION_MOVE &lt;/th&gt;
-&lt;th&gt;手指在屏幕上滑动时触发，会多次触发&lt;/th&gt;
-</code></pre><p>  <br>  <tr></tr></p>
-<pre><code>&lt;th&gt; ACTION_UP &lt;/th&gt;
-&lt;th&gt;手指离开屏幕时触发&lt;/th&gt;
-</code></pre><p>  <br>  <tr></tr></p>
-<pre><code>&lt;th&gt; ACTION_CANCEL &lt;/th&gt;
-&lt;th&gt;事件被上层拦截时触发&lt;/th&gt;
-</code></pre><p>  <br>  <tr></tr></p>
-<pre><code>&lt;th&gt; ACTION_OUTSIDE &lt;/th&gt;
-&lt;th&gt;手指不在控件区域时触发&lt;/th&gt;
-</code></pre><p>  <br>  <tr></tr></p>
-<pre><code>&lt;th&gt; ACTION_POINTER_DOWN &lt;/th&gt;
-&lt;th&gt;有非主要的手指按下(即按下之前已经有手指在屏幕上，用于多点触碰) &lt;/th&gt;
-</code></pre><p>  <br>  <tr></tr></p>
-<pre><code>&lt;th&gt; ACTION_POINTER_UP &lt;/th&gt;
-&lt;th&gt;有非主要的手指抬起(即抬起之后仍然有手指在屏幕上，用于多点触碰) &lt;/th&gt;
-</code></pre><p>  <br>  <br><br>  一次简单的触摸事件：<br>  手指落下(ACTION_DOWN) －&gt; 多次移动(ACTION_MOVE) －&gt; 离开(ACTION_UP)<br>  ACTION_MOVE 有多次触发，如果仅仅是单击(手指按下再抬起)，不会触发 ACTION_MOVE。针对这样一次触摸事件一般这样处理：  </p>
+<li><p>常用的事件  </p>
+<p>  | 事件        | 说明                      |<br>  | ——————- |:——————-:|<br>  | ACTION_DOWN         | 手指 初次接触到屏幕 时触发 |<br>  | ACTION_MOVE             | 手指 在屏幕上滑动 时触发，会多次触发      |<br>  | ACTION_UP               | 手指 离开屏幕 时触发|<br>  | ACTION_CANCEL        |事件 被上层拦截 时触发      |<br>  | ACTION_OUTSIDE            |手指 不在控件区域 时触发   |<br>  | ACTION_POINTER_DOWN |有非主要的手指按下(即按下之前已经有手指在屏幕上，用于多点触碰)|<br>  |ACTION_POINTER_UP    |有非主要的手指抬起(即抬起之后仍然有手指在屏幕上，用于多点触碰)|  </p>
+<p>  一次简单的触摸事件：<br>  手指落下(ACTION_DOWN) －&gt; 多次移动(ACTION_MOVE) －&gt; 离开(ACTION_UP)<br>  ACTION_MOVE 有多次触发，如果仅仅是单击(手指按下再抬起)，不会触发 ACTION_MOVE。针对这样一次触摸事件一般这样处理：  </p>
 <pre><code class="java">  <span class="meta">@Override</span>
 <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>{
   <span class="keyword">switch</span> (event.getAction()){
@@ -336,7 +314,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-07-29T15:41:40.000Z" itemprop="dateUpdated">7月 29 2017 23:41:40</time>
+    最后更新时间：<time datetime="2017-07-29T15:44:14.000Z" itemprop="dateUpdated">7月 29 2017 23:44:14</time>
 </span><br>
 
 
