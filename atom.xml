@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-07-29T15:57:44.000Z</updated>
+  <updated>2017-07-30T15:39:07.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -14,6 +14,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android设计模式-单例模式</title>
+    <link href="http://LiJiang.com/2017/07/30/Android%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://LiJiang.com/2017/07/30/Android设计模式-单例模式/</id>
+    <published>2017-07-30T15:37:13.000Z</published>
+    <updated>2017-07-30T15:39:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>单例模式保证类只有唯一一个实例，并提供访问一个全局访问方法，一般单例模式有以下几种模式：  </p>
+<ul>
+<li>懒汉式  </li>
+</ul>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonClass</span></span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> SingletonClass instance = <span class="keyword">null</span>;
+    <span class="function"><span class="keyword">private</span> <span class="title">SingletonClass</span><span class="params">()</span></span>{};
+    <span class="comment">//加锁在一定程度上保证线程安全</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> SingletonClass <span class="title">getInstance</span><span class="params">()</span></span>{
+    <span class="keyword">if</span>(instance == <span class="keyword">null</span>){
+        instance = <span class="keyword">new</span> SingletonClass();
+    }
+    <span class="keyword">return</span> instance;
+}
+</code></pre>
+<p>说明：懒汉式是延迟加载的，只用调用 getInstance()方法时才会创建单例一定程度上节约了系统资源，单线程下懒汉式能够很好的工作，但在多线程下可能创建多个实例，所以不建议使用。</p>
+<ul>
+<li>饿汉式  </li>
+</ul>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonClass</span></span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> SingletonClass instance = <span class="keyword">new</span> SingletonClass();
+    <span class="function"><span class="keyword">private</span> <span class="title">SingletonClass</span><span class="params">()</span></span>{
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonClass <span class="title">getInstance</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> instance;
+    }
+}
+</code></pre>
+<p>说明：饿汉式利用static关键字在类加载时就会初始化单例对象，并且缓存到静态内存中。final关键字使其是线程安全的因为JVM会自动对fianl 进行上锁同步。缺点就是类一加载时就会创建实例，所以会较早的占用系统资源。</p>
+<ul>
+<li>双重锁式  </li>
+</ul>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonClsaa</span></span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">volatile</span> SingletonClass instance = <span class="keyword">null</span>;
+    <span class="function"><span class="keyword">private</span> <span class="title">SingletonClass</span><span class="params">()</span></span>{};
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonClass <span class="title">getInstance</span><span class="params">()</span></span>{
+        <span class="keyword">if</span>(instance == <span class="keyword">null</span>){
+        <span class="keyword">synchronized</span>(SingletonClass.class){
+            <span class="keyword">if</span>(instance == <span class="keyword">null</span>){
+            instance = <span class="keyword">new</span> SingletonClass();
+            }
+        }
+        <span class="keyword">return</span> instance;
+    }
+}
+</code></pre>
+<p>说明：双重锁式很大程度上解决了线程安全的问题同时也实现了延迟加载的问题，但使用了volatile关键字会使JVM对该段代码的优化丧失影响性能，并且在一些高并发的情况下仍可能创建多个实例，这称为双重检查锁定失效。</p>
+<ul>
+<li>静态内部类  </li>
+</ul>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonClass</span></span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span></span>{
+        <span class="keyword">public</span> <span class="keyword">static</span> SingletonClass instance = <span class="keyword">new</span> SingletonClass();
+    }
+
+    <span class="function"><span class="keyword">private</span> <span class="title">SingletonClass</span><span class="params">()</span></span>{};
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonClass <span class="title">getInstance</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> SingletonHolder.instance;
+    }
+}
+</code></pre>
+<p>说明：静态内部类确保了在首次调用getInstance()的时候才会初始化SingletonHolder，从而导致实例被创建，并且由JVM保证了线程的安全。这是比较好的创建单例模式的方法。 </p>
+<ul>
+<li>枚举式  </li>
+</ul>
+<pre><code class="java"><span class="keyword">public</span> <span class="keyword">enum</span> SingletonClass{
+    <span class="comment">//定义一个枚举元素，它就是单例的实例。</span>
+    instance;
+
+    <span class="keyword">public</span> <span class="keyword">void</span> doSomething{
+    <span class="comment">//do something ...</span>
+    }
+}
+</code></pre>
+<p>使用方法如下：  </p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
+   Singleton singleton = Singleton.instance;
+   singleton.doSomething();
+}
+</code></pre>
+<p>说明：枚举单例模式最大的优点就是写法简单，枚举在java中与普通的类是一样的，不仅能够有字段，还能够有自己的方法，最重要的是默认枚举实例是线程安全的，并且在任何情况下，它都是一个单例。即使是在反序列化的过程，枚举单例也不会重新生成新的实例。而其他几种方式，必须加入如下方法：  </p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> Object <span class="title">readResolve</span><span class="params">()</span>  <span class="keyword">throws</span> ObjectStreamException</span>{
+    <span class="keyword">return</span> INSTANCE;
+}
+</code></pre>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h3 id="实现单例模式有以下几个关键点："><a href="#实现单例模式有以下几个关键点：" class="headerlink" title="实现单例模式有以下几个关键点："></a>实现单例模式有以下几个关键点：</h3><p>（1）其构造函数不对外开放，一般为private；<br>（2）通过一个静态方法或者枚举返回单例类对象；<br>（3）确保单例类的对象有且只有一个，尤其要注意多线程的场景；<br>（4）确保单例类对象在反序列化时不会重新创建对象；</p>
+<p>通过将单例类的构造函数私有化，使得客户端不能通过new的形式手动构造单例类的对象。单例类会主动暴露一个公有的静态方法，客户端调用这个静态的方法获取到单例类的唯一实例。在获取这个单例类的时候需要确保这个过程是线程安全的。<br>不管以哪种形式实现单例模式，它们的核心原理是将构造函数私有化，并且通过静态公有方法获取一个唯一的实例，在这个获取的过程中必须保证线程的安全，同时也要防止反序列化导致重新生成实例对象</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;单例模式保证类只有唯一一个实例，并提供访问一个全局访问方法，一般单例模式有以下几种模式：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;懒汉式  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; 
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Android View事件分发机制</title>
