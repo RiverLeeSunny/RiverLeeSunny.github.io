@@ -16,6 +16,8 @@
     <title>LiJiang’s blog | Walk steps step by step</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content="undefined">
     <meta name="description" content="Walk steps step by step">
@@ -30,8 +32,8 @@
     
         <link rel="alternate" type="application/atom+xml" title="LiJiang’s blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.6.11">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 </head>
 
@@ -43,19 +45,61 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">LiJiang</h5>
-          <a href="mailto:null" class="mail">
+          <a href="mailto:lijiangsiyu@163.com" title="lijiangsiyu@163.com" class="mail">lijiangsiyu@163.com</a>
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RiverLeeSunny" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/RiverLeeSunny" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -70,6 +114,20 @@
         </a>
         <div class="flex-col header-title ellipsis">LiJiang’s blog</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -120,7 +178,15 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        单例模式保证类只有唯一一个实例，并提供访问一个全局访问...
+        单例模式保证类只有唯一一个实例，并提供访问一个全局访问方法，一般单例模式有以下几种模式：  
+
+懒汉式  
+
+public class SingletonClass{
+    private static SingletonClass instance = null;
+    private SingletonClass(){};
+    //加锁在一定程度上保证线程安全
+    publi...
     
 
         <a href="/2017/07/30/Android设计模式-单例模式/" class="post-more waves-effect waves-button">
@@ -159,7 +225,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        概述事件分发机制主要说的是当MotionEvent事件...
+        概述事件分发机制主要说的是当MotionEvent事件产生后，系统需要把它分发到一个具体的View进行处理，而MotionEvent就是要分发的事件对象这个传递的过程就是分发过程。
+MotionEvent事件MotionEvent对象描述的是与用户触摸状态相关的时间序列，该序列从用户首次触摸屏幕开始，经历手指在屏幕表面的任何移动，直到手指离开屏幕时结束。手指的初次触摸(ACTION_DOWN...
     
 
         <a href="/2017/07/29/Android-View事件分发机制/" class="post-more waves-effect waves-button">
@@ -198,7 +265,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Welcome to Hexo! This is yo...
+        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Qu...
     
 
         <a href="/2017/07/18/hello-world/" class="post-more waves-effect waves-button">
@@ -219,6 +287,15 @@
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -228,7 +305,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>LiJiang &copy; 2017</span>
+        <p><span>LiJiang &copy; 2015 - 2017</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -242,21 +319,106 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://LiJiang.com/&title=LiJiang’s blog&pic=http://LiJiang.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://LiJiang.com/&title=LiJiang’s blog&source=Walk steps step by step" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://LiJiang.com/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=LiJiang’s blog&url=http://LiJiang.com/&via=http://LiJiang.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://LiJiang.com/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://LiJiang.com/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.6.11"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'LiJiang’s Blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'LiJiang’s Blog';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 
