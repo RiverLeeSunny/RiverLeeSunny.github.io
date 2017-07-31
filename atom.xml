@@ -163,13 +163,7 @@
 </li>
 </ul>
 <h1 id="事件分发过程"><a href="#事件分发过程" class="headerlink" title="事件分发过程"></a>事件分发过程</h1><p>Android上的View是树形结构一层一层嵌套叠加在一起的，这种情况下用户点击时就会出现有多个View可以响应，这时就需要事件分发机制，如下图所示：</p>
-<div align="center"><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/005Xtdi2jw1f87nsnluf5j308c0eamxg-2.jpg?raw=true" alt="=" title="">
-                </div>
-                <div class="image-caption">=</div>
-            </figure><br></div> 
+<div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/005Xtdi2jw1f87nsnluf5j308c0eamxg-2.jpg?raw=true = 200x" alt=""><br></div> 
 
 <ul>
 <li>View的结构和关系  <div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-2812.25.06.png?raw=true" width="480" height="450" alt="图片名称" align="center"><br></div><br><div align="center"><br>结构图<br></div>     
@@ -183,13 +177,7 @@
 <h3 id="PhoneWindow-和-DecorView"><a href="#PhoneWindow-和-DecorView" class="headerlink" title="PhoneWindow 和 DecorView"></a>PhoneWindow 和 DecorView</h3><blockquote>
 <p>PhoneWindow类继承于Window类，是Window类的具体实现，即我们可以通过该类具体去绘制窗口。并且，该类内部包含了一个DecorView对象，该DectorView对象是所有应用窗口(Activity界面)的根View。 简而言之，PhoneWindow类是把一个FrameLayout类即DecorView对象进行一定的包装，将它作为应用窗口的根View，并提供一组通用的窗口操作接口。<br>DecorView类是PhoneWindow类的内部类。该类是一个FrameLayout的子类，并且是PhoneWindow的子类，该类就是对普通的FrameLayout进行功能的扩展，更确切点可以说是修饰(Decor的英文全称是Decoration，即“修饰”的意思)，比如说添加TitleBar(标题栏)，以及TitleBar上的滚动条等 。最重要的一点是，它是所有应用窗口的根View 。  </p>
 </blockquote>
-<p>见类图：<br> <div align="center"><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/108817-20161124172233487-1624168604.jpg?raw=true" alt="=" title="">
-                </div>
-                <div class="image-caption">=</div>
-            </figure><br></div>   </p>
+<p>见类图：<br> <div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/108817-20161124172233487-1624168604.jpg?raw=true = 200x" alt=""><br></div>   </p>
 <p>###事件分发机制的代码分析<br>事件的分发、拦截、处理分别对应三个方法dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent  </p>
 <ul>
 <li>事件的分发：dispatchTouchEvent<br>如果事件能够传递给当前的View，那么此方法一定会调用返回结果受当前View的onTouchEvent和下级View的dispatchTouchEvent方法的影响，表示是否消耗当前事件。  </li>
@@ -201,13 +189,7 @@
 </blockquote>
 <ul>
 <li><p>事件分发流程<br>事件收集之后最先传递给 Activity， 然后依次向下传递。如果最后分发到View，如果这个View也没有处理事件怎么办，如果没有任何View消费掉事件，那么这个事件会按照反方向回传，最终传回给Activity，如果最后 Activity 也没有处理，本次事件才会被抛弃，如下图：   </p>
-<div align="center"><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-2710.33.04.png?raw=true" alt="=" title="">
-                </div>
-                <div class="image-caption">=</div>
-            </figure><br></div>  
+<div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-07-2710.33.04.png?raw=true = 200x" alt=""><br></div>  
 </li>
 <li><p>View的事件分发伪代码如下： </p>
 </li>
