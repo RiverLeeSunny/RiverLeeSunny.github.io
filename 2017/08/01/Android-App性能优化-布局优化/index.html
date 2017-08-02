@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://LiJiang.com">
-  <title>Archives | River</title>
+  <title>LiJiang’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Walk steps step by step">
-<meta property="og:type" content="website">
-<meta property="og:title" content="River">
-<meta property="og:url" content="http://LiJiang.com/archives/index.html">
-<meta property="og:site_name" content="River">
-<meta property="og:description" content="Walk steps step by step">
+  <meta name="description" content="title: Android App性能优化-布局优化date: 2017-08-01 23:15:22   tags:    inculde 标签的使用将需要重用的布局写在一个单独的xml文件中，再使用include标签复用到其他布局中，如下所示：  123456789&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;RelativeLayout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LiJiang’s blog">
+<meta property="og:url" content="http://LiJiang.com/2017/08/01/Android-App性能优化-布局优化/index.html">
+<meta property="og:site_name" content="LiJiang’s blog">
+<meta property="og:description" content="title: Android App性能优化-布局优化date: 2017-08-01 23:15:22   tags:    inculde 标签的使用将需要重用的布局写在一个单独的xml文件中，再使用include标签复用到其他布局中，如下所示：  123456789&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;RelativeLayout">
+<meta property="og:updated_time" content="2017-08-01T15:58:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="River">
-<meta name="twitter:description" content="Walk steps step by step">
+<meta name="twitter:title" content="LiJiang’s blog">
+<meta name="twitter:description" content="title: Android App性能优化-布局优化date: 2017-08-01 23:15:22   tags:    inculde 标签的使用将需要重用的布局写在一个单独的xml文件中，再使用include标签复用到其他布局中，如下所示：  123456789&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;RelativeLayout">
   
-    <link rel="alternative" href="/atom.xml" title="River" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="LiJiang’s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -48,7 +49,7 @@
 			<img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/avatar.jpg?raw=true" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">River</a></h1>
+		  <h1 class="header-author"><a href="/">LiJiang</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">Walk steps step by step</p>
@@ -59,7 +60,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/archives/">归档</a></li>
+				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -69,6 +70,8 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -106,7 +109,7 @@
 				<img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/avatar.jpg?raw=true" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">River</h1>
+			  <h1 class="header-author js-header-author">LiJiang</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Walk steps step by step<i class="icon icon-quo-right"></i></p>
@@ -139,7 +142,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/archives/">归档</a></li>
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -154,136 +157,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Android-App性能优化-布局优化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Android App性能优化-布局优化<br>date: 2017-08-01 23:15:22  </p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:  "></a>tags:  </h2><h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><ul>
+<li>inculde 标签的使用将需要重用的布局写在一个单独的xml文件中，再使用include标签复用到其他布局中，如下所示：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">   <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">   <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">   <span class="attr">android:background</span>=<span class="string">"#ffffff"</span>&gt;</div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/toolbar"</span> /&gt;</span></div><div class="line">	...</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的代码中@layout/toolbar指定了另外的布局文件，通过这种方式就把toolbar这个布局文件包含进来了避免再重复写一遍。<br>toolbar.xml如下： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:id="@+id/toolbar"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:layout_height="?attr/actionBarSize"</div><div class="line">    android:background="#fefefe"</div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/toolbar_title"</div><div class="line">        android:layout_width="wrap_content"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_gravity="center"</div><div class="line">        android:ellipsize="end"</div><div class="line">        android:singleLine="true"</div><div class="line">        android:textColor="#000000"</div><div class="line">        android:textSize="@dimen/x40"</div><div class="line">        android:textStyle="bold" /&gt;</div><div class="line">    &lt;!--右侧按钮--&gt;</div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/toolbar_right_menu"</div><div class="line">        android:layout_width="wrap_content"</div><div class="line">        android:layout_height="match_parent"</div><div class="line">        android:layout_gravity="right"</div><div class="line">        android:background="?attr/selectableItemBackground"</div><div class="line">        android:gravity="center_vertical"</div><div class="line">        android:paddingRight="@dimen/x30"</div><div class="line">        android:text="安全退出"</div><div class="line">        android:textColor="#000000"</div><div class="line">        android:textSize="@dimen/x27"</div><div class="line">        android:visibility="gone" /&gt;</div><div class="line">&lt;/android.support.v7.widget.Toolbar&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>merge 标签的使用<br>用法就是直接使用merge标签标签作为复用布局的根节点<br>user.xml</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">merge</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"姓名"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"年龄"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">merge</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>再使用include标签复用到其他布局中  </p>
+<pre><code class="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+    <span class="attr">android:id</span>=<span class="string">"@+id/ll_aty_choose_role"</span>
+    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span>
+    <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span>
+    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> &gt;</span>
+
+    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/user"</span>/&gt;</span>
+
+    ...
+
+<span class="tag">&lt;/<span class="name">LinearLayout</span> &gt;</span>
+</code></pre>
+<p>这时，系统会自动忽略merge标签，直接把两个Button替换到include标签的位置。<br>也就是说，include和merge是配合使用的  </p>
+<ul>
+<li>ViewSub使用<br>ViewSub继承了view，宽高都为0非常轻量级，不需要任何绘制。应用场景各种不常用的布局想进度条、显示错误消息等可以使用ViewStub 标签，示例：</li>
+</ul>
+<pre><code class="xml"><span class="tag">&lt;<span class="name">ViewStub</span>  
+    <span class="attr">android:id</span>=<span class="string">"@+id/stub_import"</span>  
+    <span class="attr">android:inflatedId</span>=<span class="string">"@+id/panel_import"</span>  
+    <span class="attr">android:layout</span>=<span class="string">"@layout/progress_overlay"</span>  
+    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span>  
+    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>  
+    <span class="attr">android:layout_gravity</span>=<span class="string">"bottom"</span> /&gt;</span>
+</code></pre>
+<p>在需要加载SubView布局时可以按照下面两种方式：  </p>
+<pre><code class="xml">((ViewStub) findViewById(R.id.stub_import)).setVisibility(View.VISIBLE);  
+// or  
+View importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();
+</code></pre>
+<p>当调用inflate()函数的时候，ViewStub被引用的资源替代，并且返回引用的view。 这样程序可以直接得到引用的view而不用再次调用函数findViewById()来查找了  </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>布局优化的总体原则遵循以下几点：<br>1.尽量减少布局文件的层级。<br>2.在布局层级相同的情况下优先使用FrameLayout和LinearLayout。<br>3.采用include标签、merge标签和ViewSub，merge和include标签配合使用可以降低减少布局的层级，ViewSub提供按需加载的功能</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/wechat.jpg?raw=true">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/02/Android-App性能优化-布局优化/" class="archive-article-date">
-  	<time datetime="2017-08-01T16:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 2 2017</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/02/Android-App性能优化-布局优化/">Android-App性能优化-布局优化</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://LiJiang.com/2017/08/01/Android-App性能优化-布局优化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/30/Android设计模式-单例模式/" class="archive-article-date">
-  	<time datetime="2017-07-30T15:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>7月 30 2017</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/30/Android设计模式-单例模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android设计模式-单例模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/30/Android设计模式-单例模式/">Android设计模式-单例模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-number">1.</span> <span class="toc-text">tags:  </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number"></span> <span class="toc-text"> </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/29/Android-View事件分发机制/" class="archive-article-date">
-  	<time datetime="2017-07-29T14:49:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>7月 29 2017</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/29/Android-View事件分发机制/">Android View事件分发机制</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -293,7 +361,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 River
+    		&copy; 2017 LiJiang
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -306,8 +374,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -334,6 +402,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
       
       
@@ -345,13 +415,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -370,10 +442,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -418,6 +486,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
