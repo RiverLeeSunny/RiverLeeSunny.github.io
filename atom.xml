@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-08-02T14:19:48.000Z</updated>
+  <updated>2017-08-06T09:32:32.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于Hexo yilia主题域名绑定</title>
+    <link href="http://LiJiang.com/2017/08/06/%E5%85%B3%E4%BA%8EHexo-yilia%E4%B8%BB%E9%A2%98%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/"/>
+    <id>http://LiJiang.com/2017/08/06/关于Hexo-yilia主题域名绑定/</id>
+    <published>2017-08-06T09:28:15.000Z</published>
+    <updated>2017-08-06T09:32:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>相信有很多程序员的个人博客都是github page + Hexo搭建的，搭建好后的访问地址大都是yourname.github.io格式的域名比较长而且也不够个性，如果想拥有自己的的域名可以去阿里云的万网申请很便宜。前段时间为自己的博客绑定了域名<a href="http://riversunny.top" target="_blank" rel="external">riversunny.top</a>，过程中遇到了些问题所以记录下过程：</p>
+<a id="more"></a>
+<ul>
+<li><p>购买域名<br>1.首先你需要注册阿里云账号<a href="https://www.aliyun.com" target="_blank" rel="external">阿里云注册</a>  </p>
+<p>       </p>
+  <div align="center"><br>   <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/gaitubao_com_15019424314092-2.png?raw=true" width="500" height="300" alt="图片名称" align="center"><br>  </div>  
+
+<p>2.登录阿里云<a href="https://wanwang.aliyun.com/domain/?spm=5176.8142029.388261.210.apD2jq" target="_blank" rel="external">购买域名</a> </p>
+</li>
+<li><p>域名解析<br>购买域名后，我们登录进入阿里云官网的<a href="https://netcn.console.aliyun.com/core/domain/list" target="_blank" rel="external">控制台</a>在域名列表中可以查看自己购买的域名，这时你的域名还不能用需要进行域名解析。点击添加解析按钮，依次输入：CNAME、@、Github博客域名然后保存。但有可能遇到CNAME和MX冲突的问题建议使用<a href="https://www.dnspod.cn/console/dashboard" target="_blank" rel="external">DNSpod</a>的域名解析.</p>
+</li>
+</ul>
+<p>1.首先注册<a href="https://www.dnspod.cn/console/dashboard" target="_blank" rel="external">DNSpod</a>账号然后控制台添加你在万网申请的域名如下图：<br><br>    <div align="center"><br>    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-06%205.00.34.png?raw=true" width="500" height="150" alt="图片名称" align="center"><br></div><br>2.进入万网的控制台修改你申请的域名的DNS解析如图：<br><br>    <div align="center"><br>    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-06%205.03.20.png?raw=true" width="500" height="180" alt="图片名称" align="center"><br></div> </p>
+<ul>
+<li>绑定域名  </li>
+</ul>
+<p>在Hexo source文件夹里创建CNAME文件，不带任何后缀，里面添加你的域名信息，如：riversunny.top（注意前面不添加<a href="http://）如下图：" target="_blank" rel="external">http://）如下图：</a><br><br>    <div align="center"><br>    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-06%205.19.37.png?raw=true" width="500" height="180" alt="图片名称" align="center"><br></div><br>然后运行hexo g和hexo d命令发布就可以了ok</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;域名绑定&quot;&gt;&lt;a href=&quot;#域名绑定&quot; class=&quot;headerlink&quot; title=&quot;域名绑定&quot;&gt;&lt;/a&gt;域名绑定&lt;/h3&gt;&lt;p&gt;相信有很多程序员的个人博客都是github page + Hexo搭建的，搭建好后的访问地址大都是yourname.github.io格式的域名比较长而且也不够个性，如果想拥有自己的的域名可以去阿里云的万网申请很便宜。前段时间为自己的博客绑定了域名&lt;a href=&quot;http://riversunny.top&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;riversunny.top&lt;/a&gt;，过程中遇到了些问题所以记录下过程：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="其它" scheme="http://LiJiang.com/tags/%E5%85%B6%E5%AE%83/"/>
+    
+      <category term="Hexo" scheme="http://LiJiang.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Android App性能优化-ListView、Bitmap</title>

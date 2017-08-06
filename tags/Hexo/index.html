@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://LiJiang.com">
-  <title>Android App性能优化-ListView、Bitmap | River</title>
+  <title>Tag: Hexo | River</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ListView优化 1.使用ViewHolder模式来提高效率ViewHolder模式充分利用了ListView的视图缓存机制，避免每次在调用getView()的时候都去通过findViewById()实例化控件。据测试使用ViewHolder将提高50%以上的效率，所以ViewHolder是提高效率的一个重要方法。使用ViewHolder只需要在自定义Adapter定义一个内部类ViewHol">
-<meta name="keywords" content="Android">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android App性能优化-ListView、Bitmap">
-<meta property="og:url" content="http://LiJiang.com/2017/08/02/Android-App性能优化-ListView、Bitmap/index.html">
+  <meta name="description" content="以梦为马，不负韶光">
+<meta property="og:type" content="website">
+<meta property="og:title" content="River">
+<meta property="og:url" content="http://LiJiang.com/tags/Hexo/index.html">
 <meta property="og:site_name" content="River">
-<meta property="og:description" content="ListView优化 1.使用ViewHolder模式来提高效率ViewHolder模式充分利用了ListView的视图缓存机制，避免每次在调用getView()的时候都去通过findViewById()实例化控件。据测试使用ViewHolder将提高50%以上的效率，所以ViewHolder是提高效率的一个重要方法。使用ViewHolder只需要在自定义Adapter定义一个内部类ViewHol">
-<meta property="og:updated_time" content="2017-08-02T14:19:48.000Z">
+<meta property="og:description" content="以梦为马，不负韶光">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android App性能优化-ListView、Bitmap">
-<meta name="twitter:description" content="ListView优化 1.使用ViewHolder模式来提高效率ViewHolder模式充分利用了ListView的视图缓存机制，避免每次在调用getView()的时候都去通过findViewById()实例化控件。据测试使用ViewHolder将提高50%以上的效率，所以ViewHolder是提高效率的一个重要方法。使用ViewHolder只需要在自定义Adapter定义一个内部类ViewHol">
+<meta name="twitter:title" content="River">
+<meta name="twitter:description" content="以梦为马，不负韶光">
   
     <link rel="alternative" href="/atom.xml" title="River" type="application/atom+xml">
   
@@ -156,209 +154,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android-App性能优化-ListView、Bitmap" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Android App性能优化-ListView、Bitmap
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/06/关于Hexo-yilia主题域名绑定/" class="archive-article-date">
+  	<time datetime="2017-08-06T09:28:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 6 2017</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/08/06/关于Hexo-yilia主题域名绑定/">关于Hexo yilia主题域名绑定</a>
     </h1>
   
 
-        
-        <a href="/2017/08/02/Android-App性能优化-ListView、Bitmap/" class="archive-article-date">
-  	<time datetime="2017-08-02T14:05:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 2 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="ListView优化"><a href="#ListView优化" class="headerlink" title="ListView优化"></a>ListView优化</h3><ul>
-<li>1.使用ViewHolder模式来提高效率<br>ViewHolder模式充分利用了ListView的视图缓存机制，避免每次在调用getView()的时候都去通过findViewById()实例化控件。据测试使用ViewHolder将提高50%以上的效率，所以ViewHolder是提高效率的一个重要方法。使用ViewHolder只需要在自定义Adapter定义一个内部类ViewHolder并将布局中的控件作为成员变量，代码如下：  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> ImageView icon;</div><div class="line">    <span class="keyword">public</span> TextView text;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
-<p>接下来只需要通过getView()方法中通过视图缓存机制重用缓存即可，代码如下：  </p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.imooc.myapplication;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.widget.BaseAdapter;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChatItemListViewAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> List&lt;ChatItemListViewBean&gt; mData;</div><div class="line">    <span class="keyword">private</span> LayoutInflater mInflater;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ChatItemListViewAdapter</span><span class="params">(Context context,</span></span></div><div class="line">                                   List&lt;ChatItemListViewBean&gt; data) &#123;</div><div class="line">        <span class="keyword">this</span>.mData = data;</div><div class="line">        mInflater = LayoutInflater.from(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mData.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mData.get(position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> position;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        ChatItemListViewBean bean = mData.get(position);</div><div class="line">        <span class="keyword">return</span> bean.getType();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line">        ViewHolder holder;</div><div class="line">        <span class="keyword">if</span> (convertView == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (getItemViewType(position) == <span class="number">0</span>) &#123;</div><div class="line">                holder = <span class="keyword">new</span> ViewHolder();</div><div class="line">                convertView = mInflater.inflate(</div><div class="line">                        R.layout.chat_item_itemin, <span class="keyword">null</span>);</div><div class="line">                holder.icon = (ImageView) convertView.findViewById(</div><div class="line">                        R.id.icon_in);</div><div class="line">                holder.text = (TextView) convertView.findViewById(</div><div class="line">                        R.id.text_in);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                holder = <span class="keyword">new</span> ViewHolder();</div><div class="line">                convertView = mInflater.inflate(</div><div class="line">                        R.layout.chat_item_itemout, <span class="keyword">null</span>);</div><div class="line">                holder.icon = (ImageView) convertView.findViewById(</div><div class="line">                        R.id.icon_out);</div><div class="line">                holder.text = (TextView) convertView.findViewById(</div><div class="line">                        R.id.text_out);</div><div class="line">            &#125;</div><div class="line">            convertView.setTag(holder);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            holder = (ViewHolder) convertView.getTag();</div><div class="line">        &#125;</div><div class="line">        holder.icon.setImageBitmap(mData.get(position).getIcon());</div><div class="line">        holder.text.setText(mData.get(position).getText());</div><div class="line">        <span class="keyword">return</span> convertView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">        <span class="keyword">public</span> ImageView icon;</div><div class="line">        <span class="keyword">public</span> TextView text;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
-<ul>
-<li>2.不要在getView()方法中做耗时操作</li>
-<li>3.控制异步操作的执行频率</li>
-<li>4.通常做到上面三点可以解决大部分卡顿现象，但在某些特殊情况下还是偶尔出现卡顿可以开启硬件加速通过设置android:hardwareAccelerated=”true”即可为Activity开启硬件加速</li>
-</ul>
-<h3 id="Bitmap的优化"><a href="#Bitmap的优化" class="headerlink" title="Bitmap的优化"></a>Bitmap的优化</h3><p>Bitmap操作不慎，很容易造成OOM(Java.lang.OutofMemoryError - 内存溢出)。图片分辨率越高，消耗的内存越大，当加载高分辨率图片的时候，将会非常占用内存，一旦处理不当就会OOM。在使用ListView, GridView等这些大量加载view的组件时，如果没有合理的处理缓存，大量加载Bitmap的时候，更容易引发OOM，综上Bitmap的优化就显得十分重要。</p>
-<ul>
-<li>Bitmap的高效加载  </li>
-</ul>
-<p>Android中使用BitmapFactory加载一个图片，该类提供了四个方法：decodeFile、decodeResource、decodeStream、decodeByteArray，分别用于从文件、资源、输入流以及字节数组中加载出一个Bitmap对象。要做到高效加载可以采用BitmapFactory.Options来加载所需尺寸的图片。通过采样率（BitmapFactoty.Options的inSampleSize参数，当inSampleSize = 1时采样后的图片大小为原始图片大小；当inSampleSize大于1比如为2时那么采样后的图片的宽高为原始图片的1/2，而像素为原始图片的1/4，其占有内存的大小为原始图片的1/4。）即可有效加载图片获取采样率也很简单遵循以下流程：<br>  (1)将BitmapFactory.Options的inJustDecodeBounds参数设为true加载图片。<br>  (2)从BitmapFactory.Options中取出原始宽高信息，它们对应于outWidth和outHeight<br>  (3)根据采样率的规则并结合目标View的所需大小计算出采样率inSampleSize<br>  (4)将BitmapFactory.Options的inJustDecodeBounds参数设为false重新加载图片<br>  上面4个流程的代码实现如下：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Bitmap <span class="title">decodeSampledBitmapFromResource</span><span class="params">(Resources res, <span class="keyword">int</span> resId, <span class="keyword">int</span> reqWidth, <span class="keyword">int</span> reqHeight)</span></span>&#123;</div><div class="line">      <span class="comment">//通过采样率可以有效的加载图片，获取采样率的步骤：</span></div><div class="line">      <span class="comment">/*</span></div><div class="line">      (1) 将BitmapFactory.Options的inJustDecodeBounds = true 并加载图片</div><div class="line">      (2) 从BitmapFactory.Options中取出原始图片的宽高信息，它们对应于outWith和outHeight参数</div><div class="line">      (3) 根据采样率的规则并结合view的所需大小计算出inSimpleSize</div><div class="line">      (4) 将BitmapFactory.Options的inJustDecodeBounds = false 然后从新加载图片</div><div class="line">       */</div><div class="line">      <span class="keyword">final</span> BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</div><div class="line">      options.inJustDecodeBounds = <span class="keyword">true</span>;</div><div class="line">      BitmapFactory.decodeResource(res,resId,options);</div><div class="line">      <span class="comment">//Calculate sampleSize</span></div><div class="line">      options.inSampleSize = calculateInSampleSize(options,reqWidth,reqHeight);</div><div class="line"></div><div class="line">      <span class="comment">//Decode bitmap with sampleSize set</span></div><div class="line">      options.inJustDecodeBounds = <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">return</span> BitmapFactory.decodeResource(res,resId,options);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> Bitmap <span class="title">decodeSampledBitmapFromFileDescriptor</span><span class="params">(FileDescriptor fd,<span class="keyword">int</span> reqWidth,<span class="keyword">int</span> reqHeight)</span></span>&#123;</div><div class="line">      <span class="keyword">final</span> BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</div><div class="line">      options.inJustDecodeBounds = <span class="keyword">true</span>;</div><div class="line">      BitmapFactory.decodeFileDescriptor(fd,<span class="keyword">null</span>,options);</div><div class="line">      <span class="comment">//Calculate sampleSize</span></div><div class="line">      options.inSampleSize = calculateInSampleSize(options,reqWidth,reqHeight);</div><div class="line"></div><div class="line">      <span class="comment">//Decode bitmap with sampleSize set</span></div><div class="line">      options.inJustDecodeBounds = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> BitmapFactory.decodeFileDescriptor(fd,<span class="keyword">null</span>,options);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculateInSampleSize</span><span class="params">(BitmapFactory.Options options,<span class="keyword">int</span> reqWith,<span class="keyword">int</span> reqHeight)</span></span>&#123;</div><div class="line">      <span class="keyword">if</span> (reqWith == <span class="number">0</span> || reqHeight == <span class="number">0</span>)&#123;</div><div class="line">          <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="comment">//raw width and height of image</span></div><div class="line">      <span class="keyword">final</span> <span class="keyword">int</span> width = options.outWidth;</div><div class="line">      <span class="keyword">final</span> <span class="keyword">int</span> height = options.outHeight;</div><div class="line">      Log.d(TAG,<span class="string">"origin,h = "</span> + height + <span class="string">"w = "</span>+width);</div><div class="line">      <span class="keyword">int</span> inSampleSize = <span class="number">1</span>;</div><div class="line">      <span class="keyword">if</span> (height &gt; reqHeight || width &gt; reqWith)&#123;</div><div class="line">          <span class="keyword">final</span> <span class="keyword">int</span> halfWith = width/<span class="number">2</span>;</div><div class="line">          <span class="keyword">final</span> <span class="keyword">int</span> halfHeight = height/<span class="number">2</span>;</div><div class="line">          <span class="comment">/*</span></div><div class="line">           Calculate the largest inSampleSize value that is a power of 2 and keeps both height and width larger</div><div class="line">           than the requests height and width</div><div class="line">           */</div><div class="line">          <span class="keyword">while</span> ((halfHeight/inSampleSize) &gt;= reqHeight &amp;&amp; (halfWith/inSampleSize) &gt;= reqWith)&#123;</div><div class="line">              inSampleSize *= <span class="number">2</span>;</div><div class="line">          &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">      Log.d(TAG,<span class="string">"sampleSize = "</span>+ inSampleSize);</div><div class="line">      <span class="keyword">return</span> inSampleSize;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/wechat.jpg?raw=true">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其它</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://LiJiang.com/2017/08/02/Android-App性能优化-ListView、Bitmap/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/08/06/关于Hexo-yilia主题域名绑定/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于Hexo yilia主题域名绑定
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/08/02/Android-App性能优化-布局优化/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android-App性能优化-布局优化</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView优化"><span class="toc-number">1.</span> <span class="toc-text">ListView优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bitmap的优化"><span class="toc-number">2.</span> <span class="toc-text">Bitmap的优化</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -381,9 +234,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
