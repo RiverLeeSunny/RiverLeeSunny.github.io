@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-08-06T09:32:32.000Z</updated>
+  <updated>2017-08-15T11:15:28.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>邓白氏编码申请流程</title>
+    <link href="http://LiJiang.com/2017/08/15/%E9%82%93%E7%99%BD%E6%B0%8F%E7%BC%96%E7%A0%81%E7%94%B3%E8%AF%B7%E6%B5%81%E7%A8%8B/"/>
+    <id>http://LiJiang.com/2017/08/15/邓白氏编码申请流程/</id>
+    <published>2017-08-15T11:06:22.000Z</published>
+    <updated>2017-08-15T11:15:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近申请邓白氏编码用于申请苹果公司开发者账号，整个申请流畅整理了一下供大家参考如下：<br>1.访问<a href="https://idmsa.apple.com/IDMSWebAuth/login?appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&amp;path=%2Faccount%2F&amp;rv=1" target="_blank" rel="external">苹果开发者网站</a>如下图：  </p>
+ <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-155.28.18.png?raw=true" width="480" height="300" alt="图片名称" align="center"><br></div> 
+
+<p>如果已经有Apple ID直接登录，没有点Create Apple ID按钮创建。  </p>
+<a id="more"></a>
+<p>2.Apple ID登录成功后,按如下图操作：</p>
+<ul>
+<li>第一步</li>
+</ul>
+<div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20170815_5.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div>   
+
+<ul>
+<li>第二步  <div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20170815_6.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div>  </li>
+<li><p>第三步  </p>
+<div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20170815_7.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div>  
+</li>
+<li><p>第四步  </p>
+<div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20170815_8.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div> </li>
+<li><p>开始填写申请邓白氏编码信息</p>
+<div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/1617037-a0d07ae7bf4126b6.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div><br><div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/1617037-ff4ad54e5b0bf03e.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div>  
+
+<p>  填写完信息点击continue 提交    </p>
+</li>
+</ul>
+<p>3.提交信息后华夏邓白氏会给你发邮件，然后你按照邮件的信息回复就可以了。邮件内容如下：<br> <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20170815_9.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div>  </p>
+<p>邮件回复成功后等待1~2天即可收到编码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近申请邓白氏编码用于申请苹果公司开发者账号，整个申请流畅整理了一下供大家参考如下：&lt;br&gt;1.访问&lt;a href=&quot;https://idmsa.apple.com/IDMSWebAuth/login?appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&amp;amp;path=%2Faccount%2F&amp;amp;rv=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;苹果开发者网站&lt;/a&gt;如下图：  &lt;/p&gt;
+ &lt;div align=&quot;center&quot;&gt;&lt;br&gt; &lt;img src=&quot;https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-155.28.18.png?raw=true&quot; width=&quot;480&quot; height=&quot;300&quot; alt=&quot;图片名称&quot; align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt; 
+
+&lt;p&gt;如果已经有Apple ID直接登录，没有点Create Apple ID按钮创建。  &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://LiJiang.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>关于Hexo yilia主题域名绑定</title>
