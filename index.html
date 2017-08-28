@@ -166,6 +166,83 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-mvp模式-rxjava-Retrofit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/">Android mvp模式+rxjava+Retrofit</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/" class="archive-article-date">
+  	<time datetime="2017-08-28T08:46:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 28 2017</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：<br>示例代码下载<a href="https://github.com/RiverLeeSunny/Mvp-RxRetrofit.git" target="_blank" rel="external">demo</a>  </p>
+<p>整个框架采用了mvp模式，mvp用present代替mvc中的C让V变得更纯粹，并且已经应用的很广泛得到了大家的认可。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  </p>
+        
+          <a class="article-more-a" href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-邓白氏编码申请流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -484,97 +561,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android设计模式-单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/30/Android设计模式-单例模式/">Android设计模式-单例模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/30/Android设计模式-单例模式/" class="archive-article-date">
-  	<time datetime="2017-07-30T15:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>7月 30 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>单例模式保证类只有唯一一个实例，并提供访问一个全局访问方法，一般单例模式有以下几种模式：  </p>
-<ul>
-<li>懒汉式  </li>
-</ul>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonClass</span></span>{
-    <span class="keyword">private</span> <span class="keyword">static</span> SingletonClass instance = <span class="keyword">null</span>;
-    <span class="function"><span class="keyword">private</span> <span class="title">SingletonClass</span><span class="params">()</span></span>{};
-    <span class="comment">//加锁在一定程度上保证线程安全</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> SingletonClass <span class="title">getInstance</span><span class="params">()</span></span>{
-    <span class="keyword">if</span>(instance == <span class="keyword">null</span>){
-        instance = <span class="keyword">new</span> SingletonClass();
-    }
-    <span class="keyword">return</span> instance;
-}
-</code></pre>
-<p>说明：懒汉式是延迟加载的，只用调用 getInstance()方法时才会创建单例一定程度上节约了系统资源，单线程下懒汉式能够很好的工作，但在多线程下可能创建多个实例，所以不建议使用。  </p>
-        
-          <a class="article-more-a" href="/2017/07/30/Android设计模式-单例模式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/30/Android设计模式-单例模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -672,15 +658,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">其它</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
             
             <div class="clearfix"></div>

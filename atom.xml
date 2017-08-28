@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-08-15T11:15:28.000Z</updated>
+  <updated>2017-08-28T08:53:26.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -14,6 +14,172 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android mvp模式+rxjava+Retrofit</title>
+    <link href="http://LiJiang.com/2017/08/28/Android-mvp%E6%A8%A1%E5%BC%8F-rxjava-Retrofit/"/>
+    <id>http://LiJiang.com/2017/08/28/Android-mvp模式-rxjava-Retrofit/</id>
+    <published>2017-08-28T08:46:26.000Z</published>
+    <updated>2017-08-28T08:53:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：<br>示例代码下载<a href="https://github.com/RiverLeeSunny/Mvp-RxRetrofit.git" target="_blank" rel="external">demo</a>  </p>
+<p>整个框架采用了mvp模式，mvp用present代替mvc中的C让V变得更纯粹，并且已经应用的很广泛得到了大家的认可。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  </p>
+<a id="more"></a>
+<h2 id="mvp模式"><a href="#mvp模式" class="headerlink" title="mvp模式"></a>mvp模式</h2><p>相信大家对mvc模式已经并不陌生,mvc(Model-View-Controller)，其中M指的是模型层、V指的是视图层、C指的是控制层，三者的关系如下：<br> <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true" width="480" height="200" alt="图片名称" align="center"><br></div> </p>
+<p>在mvc模式中view层不仅通过Controller和model层打交道而且它还可以直接访问model，从而，View里会包含Model信息，不可避免的还要包括一些业务逻辑导致要更改View也是比较困难的，至少那些业务逻辑是无法重用的，Controller并没有完全分离View和Model</p>
+<p>在MVP里，Presenter完全把Model和View进行了分离，主要的程序逻辑在Presenter里实现。而且，Presenter与具体的View是通过定义好的接口进行交互的，从而使得在变更View时候可以保持Presenter的不变，即重用！如图：<br> <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.56.png?raw=true" width="480" height="200" alt="图片名称" align="center"><br></div> </p>
+<ul>
+<li>mvp的优点</li>
+</ul>
+<ol>
+<li>模型与视图完全分离，我们可以修改视图而不影响模型；</li>
+<li>可以更高效地使用模型，因为所有的交互都发生在一个地方——Presenter内部；</li>
+<li>我们可以将一个Presenter用于多个视图，而不需要改变Presenter的逻辑。这个特性非常的有用，因为视图的变化总是比模型的变化频繁；</li>
+<li>如果我们把逻辑放在Presenter中，那么我们就可以脱离用户接口来测试这些逻辑（单元测试）。</li>
+</ol>
+<p>例子：  </p>
+<ul>
+<li>view层<br>包含两个基类MvpBaseActivity、MvpBaseFragment，如果你的view层由一个Activity多个Fragment组成为了防止Activity和present过于臃肿可以让每个Fragment继承MvpBaseFragment来和presenter绑定，然后view和present交互可以通过接口来定义。代码如下：  </li>
+</ul>
+<p>MvpBaseActivity：  </p>
+<pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpBaseActivity</span> &lt;<span class="title">V</span>,<span class="title">T</span> <span class="keyword">extends</span>     <span class="title">MvpBasePresenter</span>&gt; <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TAG"</span>;
+    <span class="comment">//presenter对象</span>
+    <span class="keyword">private</span> T mPresenter;
+
+    <span class="keyword">protected</span> ProgressDialog progressDialog;
+
+
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
+        <span class="keyword">super</span>.onCreate(savedInstanceState);
+        <span class="comment">//创建presenter</span>
+        mPresenter = createPresenter();
+        <span class="comment">//view与presenter建立关联</span>
+        mPresenter.attachView((V)<span class="keyword">this</span>);
+        Log.i(TAG, <span class="string">"attachView-mPresenter="</span>+mPresenter);
+    }
+
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>.onDestroy();
+        Log.i(TAG, <span class="string">"onDestroy()-mPresenter="</span>+mPresenter);
+        mPresenter.detachView();
+    }
+
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span>  T <span class="title">createPresenter</span><span class="params">()</span></span>;
+    }
+</code></pre>
+<p>MvpBaseFragment：</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpBaseFragment</span>&lt;<span class="title">V</span>,<span class="title">T</span> <span class="keyword">extends</span> <span class="title">MvpBasePresenter</span>&gt; <span class="keyword">extends</span> <span class="title">Fragment</span> </span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TAG"</span>;
+    <span class="comment">//presenter对象</span>
+    <span class="keyword">private</span> T mPresenter;
+
+
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
+        <span class="keyword">super</span>.onCreate(savedInstanceState);
+        <span class="comment">//创建presenter</span>
+        mPresenter = createPresenter();
+        <span class="comment">//view与presenter建立关联</span>
+        mPresenter.attachView((V)<span class="keyword">this</span>);
+        Log.i(TAG, <span class="string">"attachView-mPresenter="</span>+mPresenter);
+    }
+
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>.onDestroy();
+        Log.i(TAG, <span class="string">"onDestroy()-mPresenter="</span>+mPresenter);
+        mPresenter.detachView();
+    }
+
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span>  T <span class="title">createPresenter</span><span class="params">()</span></span>;
+
+}
+</code></pre>
+<p>例子中view层接口</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ITopicsView</span> </span>{
+    <span class="function"><span class="keyword">void</span> <span class="title">setQuestData</span><span class="params">(String string)</span></span>;
+    <span class="function"><span class="keyword">void</span> <span class="title">showLoading</span><span class="params">()</span></span>;
+    <span class="function"><span class="keyword">void</span> <span class="title">hideLoading</span><span class="params">()</span></span>;
+}
+</code></pre>
+<ul>
+<li>Presenter层  </li>
+</ul>
+<p>包含MvpBasePresenter、接口Presenter，见代码：</p>
+<p>MvpBasePresenter： </p>
+<pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpBasePresenter</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Presenter</span>&lt;<span class="title">V</span>&gt; </span>{
+    <span class="comment">//view接口类型的弱引用</span>
+    <span class="keyword">protected</span> Reference&lt;V&gt; mViewRef;
+    <span class="comment">//建立关联</span>
+
+    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">attachView</span><span class="params">(V view)</span></span>{
+        mViewRef = <span class="keyword">new</span> WeakReference&lt;V&gt;(view);
+    }
+
+    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">detachView</span><span class="params">()</span></span>{
+        <span class="keyword">if</span>(mViewRef!=<span class="keyword">null</span>){
+            mViewRef.clear();
+            mViewRef =<span class="keyword">null</span>;
+        }
+    }
+
+    <span class="function"><span class="keyword">protected</span> V <span class="title">getView</span><span class="params">()</span></span>{
+        <span class="keyword">return</span>  mViewRef.get();
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewAttached</span><span class="params">()</span></span>{
+        <span class="keyword">return</span>  mViewRef !=<span class="keyword">null</span> &amp;&amp; mViewRef.get() !=<span class="keyword">null</span>;
+    }
+
+    <span class="comment">/**
+     * 每次调用业务请求的时候都要先调用方法检查是否与View建立连接，没有则抛出异常
+     */</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkViewAttached</span><span class="params">()</span> </span>{
+        <span class="keyword">if</span> (!isViewAttached()) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> top.riversunny.mvp_rxretrofit.mvp.MvpBasePresenter.MvpViewNotAttachedException();
+        }
+    }
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpViewNotAttachedException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span> </span>{
+        <span class="function"><span class="keyword">public</span> <span class="title">MvpViewNotAttachedException</span><span class="params">()</span> </span>{
+            <span class="keyword">super</span>(<span class="string">"请求数据前请先调用 attachView(MvpView) 方法与View建立连接"</span>);
+        }
+    }
+}
+</code></pre>
+<p>Presenter:</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Presenter</span>&lt;<span class="title">V</span>&gt; </span>{
+    <span class="comment">/**
+     * Presenter与View建立连接
+     *
+     * <span class="doctag">@param</span> mvpView 与此Presenter相对应的View
+     */</span>
+    <span class="function"><span class="keyword">void</span> <span class="title">attachView</span><span class="params">(V mvpView)</span></span>;
+
+    <span class="comment">/**
+     * Presenter与View连接断开
+     */</span>
+    <span class="function"><span class="keyword">void</span> <span class="title">detachView</span><span class="params">()</span></span>;
+}
+</code></pre>
+<p>rxjava的使用可以阅读<br><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">http://gank.io/post/560e15be2dca930e00da1083</a></p>
+<p>Retrofit的使用可以阅读<br><a href="http://www.jianshu.com/p/308f3c54abdd" target="_blank" rel="external">http://www.jianshu.com/p/308f3c54abdd</a><br><a href="http://www.jianshu.com/p/94ca8a284ebb" target="_blank" rel="external">http://www.jianshu.com/p/94ca8a284ebb</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：&lt;br&gt;示例代码下载&lt;a href=&quot;https://github.com/RiverLeeSunny/Mvp-RxRetrofit.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;demo&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;整个框架采用了mvp模式，mvp用present代替mvc中的C让V变得更纯粹，并且已经应用的很广泛得到了大家的认可。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://LiJiang.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>邓白氏编码申请流程</title>
