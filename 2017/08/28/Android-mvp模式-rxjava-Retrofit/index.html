@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://LiJiang.com">
   <title>Android mvp模式+rxjava+Retrofit | River</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用了mvp模式，mvp用present代替mvc中的C让V变得更纯粹，并且已经应用的很广泛得到了大家的认可。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
+  <meta name="description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android mvp模式+rxjava+Retrofit">
 <meta property="og:url" content="http://LiJiang.com/2017/08/28/Android-mvp模式-rxjava-Retrofit/index.html">
 <meta property="og:site_name" content="River">
-<meta property="og:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用了mvp模式，mvp用present代替mvc中的C让V变得更纯粹，并且已经应用的很广泛得到了大家的认可。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
+<meta property="og:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.56.png?raw=true">
-<meta property="og:updated_time" content="2017-08-28T08:53:26.000Z">
+<meta property="og:updated_time" content="2017-08-29T10:51:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android mvp模式+rxjava+Retrofit">
-<meta name="twitter:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用了mvp模式，mvp用present代替mvc中的C让V变得更纯粹，并且已经应用的很广泛得到了大家的认可。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
+<meta name="twitter:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
 <meta name="twitter:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="River" type="application/atom+xml">
@@ -190,7 +190,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：<br>示例代码下载<a href="https://github.com/RiverLeeSunny/Mvp-RxRetrofit.git" target="_blank" rel="external">demo</a>  </p>
-<p>整个框架采用了mvp模式，mvp用present代替mvc中的C让V变得更纯粹，并且已经应用的很广泛得到了大家的认可。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  </p>
+<p>整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  </p>
 <a id="more"></a>
 <h2 id="mvp模式"><a href="#mvp模式" class="headerlink" title="mvp模式"></a>mvp模式</h2><p>相信大家对mvc模式已经并不陌生,mvc(Model-View-Controller)，其中M指的是模型层、V指的是视图层、C指的是控制层，三者的关系如下：<br> <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true" width="480" height="200" alt="图片名称" align="center"><br></div> </p>
 <p>在mvc模式中view层不仅通过Controller和model层打交道而且它还可以直接访问model，从而，View里会包含Model信息，不可避免的还要包括一些业务逻辑导致要更改View也是比较困难的，至少那些业务逻辑是无法重用的，Controller并没有完全分离View和Model</p>
@@ -582,15 +582,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">其它</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
             
             <div class="clearfix"></div>
