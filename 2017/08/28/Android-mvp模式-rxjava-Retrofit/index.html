@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.56.png?raw=true">
-<meta property="og:updated_time" content="2017-09-03T10:24:13.000Z">
+<meta property="og:updated_time" content="2017-09-03T10:28:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android mvp模式+rxjava+Retrofit">
 <meta name="twitter:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
 </ul>
 <p>MvpBaseActivity：  </p>
 <pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpBaseActivity</span> &lt;<span class="title">V</span>,<span class="title">T</span> <span class="keyword">extends</span>     <span class="title">MvpBasePresenter</span>&gt; <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>{
-    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TAG"</span>;
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MvpBaseActivity"</span>;
     <span class="comment">//presenter对象</span>
     <span class="keyword">private</span> T mPresenter;
 
@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
 </code></pre>
 <p>MvpBaseFragment：</p>
 <pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpBaseFragment</span>&lt;<span class="title">V</span>,<span class="title">T</span> <span class="keyword">extends</span> <span class="title">MvpBasePresenter</span>&gt; <span class="keyword">extends</span> <span class="title">Fragment</span> </span>{
-    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TAG"</span>;
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MvpBaseFragment"</span>;
     <span class="comment">//presenter对象</span>
     <span class="keyword">private</span> T mPresenter;
 
@@ -591,15 +591,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">其它</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
             
             <div class="clearfix"></div>

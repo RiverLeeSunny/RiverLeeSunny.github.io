@@ -152,7 +152,7 @@
     <link href="http://LiJiang.com/2017/08/28/Android-mvp%E6%A8%A1%E5%BC%8F-rxjava-Retrofit/"/>
     <id>http://LiJiang.com/2017/08/28/Android-mvp模式-rxjava-Retrofit/</id>
     <published>2017-08-28T08:46:26.000Z</published>
-    <updated>2017-09-03T10:24:13.000Z</updated>
+    <updated>2017-09-03T10:28:09.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：<br>示例代码下载<a href="https://github.com/RiverLeeSunny/Mvp-RxRetrofit.git" target="_blank" rel="external">demo</a>  </p>
 <p>整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  </p>
@@ -175,7 +175,7 @@
 </ul>
 <p>MvpBaseActivity：  </p>
 <pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpBaseActivity</span> &lt;<span class="title">V</span>,<span class="title">T</span> <span class="keyword">extends</span>     <span class="title">MvpBasePresenter</span>&gt; <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>{
-    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TAG"</span>;
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MvpBaseActivity"</span>;
     <span class="comment">//presenter对象</span>
     <span class="keyword">private</span> T mPresenter;
 
@@ -204,7 +204,7 @@
 </code></pre>
 <p>MvpBaseFragment：</p>
 <pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpBaseFragment</span>&lt;<span class="title">V</span>,<span class="title">T</span> <span class="keyword">extends</span> <span class="title">MvpBasePresenter</span>&gt; <span class="keyword">extends</span> <span class="title">Fragment</span> </span>{
-    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TAG"</span>;
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MvpBaseFragment"</span>;
     <span class="comment">//presenter对象</span>
     <span class="keyword">private</span> T mPresenter;
 
