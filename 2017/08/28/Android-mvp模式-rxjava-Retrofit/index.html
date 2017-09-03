@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.56.png?raw=true">
-<meta property="og:updated_time" content="2017-08-29T10:51:45.000Z">
+<meta property="og:updated_time" content="2017-09-03T10:24:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android mvp模式+rxjava+Retrofit">
 <meta name="twitter:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
@@ -312,7 +312,7 @@ var _hmt = _hmt || [];
 
     <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpViewNotAttachedException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span> </span>{
         <span class="function"><span class="keyword">public</span> <span class="title">MvpViewNotAttachedException</span><span class="params">()</span> </span>{
-            <span class="keyword">super</span>(<span class="string">"请求数据前请先调用 attachView(MvpView) 方法与View建立连接"</span>);
+            <span class="keyword">super</span>(<span class="string">"请求数据前请先调用 attachView(View) 方法与View建立连接"</span>);
         }
     }
 }
