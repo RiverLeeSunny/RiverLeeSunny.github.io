@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://LiJiang.com">
-  <title>categories | River</title>
+  <title>The version of CocoaPods used to generate the lockfile (1.0.1) is higher than the version of the current executable (1.0.0) | River</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以梦为马，不负韶光">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://LiJiang.com/categories/index.html">
+  <meta name="description" content="执行pod install时出现如下信息：">
+<meta name="keywords" content="iOS,CocoaPods">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The version of CocoaPods used to generate the lockfile (1.0.1) is higher than the version of the current executable (1.0.0)">
+<meta property="og:url" content="http://LiJiang.com/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/index.html">
 <meta property="og:site_name" content="River">
-<meta property="og:description" content="以梦为马，不负韶光">
-<meta property="og:updated_time" content="2017-07-19T14:56:50.000Z">
+<meta property="og:description" content="执行pod install时出现如下信息：">
+<meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-09-0911.27.51.png?raw=true">
+<meta property="og:updated_time" content="2017-09-09T04:22:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="以梦为马，不负韶光">
+<meta name="twitter:title" content="The version of CocoaPods used to generate the lockfile (1.0.1) is higher than the version of the current executable (1.0.0)">
+<meta name="twitter:description" content="执行pod install时出现如下信息：">
+<meta name="twitter:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-09-0911.27.51.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="River" type="application/atom+xml">
   
@@ -165,27 +168,42 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      The version of CocoaPods used to generate the lockfile (1.0.1) is higher than the version of the current executable (1.0.0)
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2017-07-19T14:56:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>7月 19 2017</time>
+        <a href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/" class="archive-article-date">
+  	<time datetime="2017-09-09T03:25:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>9月 9 2017</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>执行pod install时出现如下信息：<br><br>    <div align="center,margin-top=" 5px=""><br>    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-09-0911.27.51.png?raw=true" width="700" height="30" alt="图片名称" align="center"><br></div>    </p>
+<a id="more"></a>
+<p>问题的原因是：CocoaPods的版本太低  </p>
+<p>解决问题：  </p>
+<ul>
+<li><p>检查gem ruby版本（建议 2.6.x 以上）<br>gem -v</p>
+</li>
+<li><p>升级gem版本<br>如果你现在使用的源是<a href="https://rubygems.org/请换成https://gems.ruby-china.org/" target="_blank" rel="external">https://rubygems.org/请换成https://gems.ruby-china.org/</a></p>
+<p> 移除现有Ruby默认源<br> gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a><br> 使用新的源<br> gem sources -a  <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a><br> 验证新源是否替换成功<br> gem sources -l  </p>
+</li>
+<li><p>安装CocoaPods<br>(1) sudo gem install -n /usr/local/bin cocoapods<br>输入电脑密码, 回车等待.<br>(2) pod setup  </p>
+</li>
+</ul>
+<p>版本更新：sudo gem install cocoapods –pre</p>
+<p>安装或更新完毕检查版本：pod –version再次执行pod install就可以了</p>
+
       
 
       
@@ -219,6 +237,21 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CocoaPods</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -269,7 +302,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://LiJiang.com/categories/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://LiJiang.com/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,6 +314,16 @@ var _hmt = _hmt || [];
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/30/转-iOS第三方库汇总/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[转]iOS第三方库汇总</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -342,7 +385,7 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

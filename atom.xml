@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-08-30T04:01:31.000Z</updated>
+  <updated>2017-09-09T04:22:10.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The version of CocoaPods used to generate the lockfile (1.0.1) is higher than the version of the current executable (1.0.0)</title>
+    <link href="http://LiJiang.com/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/"/>
+    <id>http://LiJiang.com/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/</id>
+    <published>2017-09-09T03:25:36.000Z</published>
+    <updated>2017-09-09T04:22:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>执行pod install时出现如下信息：<br><br>    <div align="center,margin-top=" 5px=""><br>    <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-09-0911.27.51.png?raw=true" width="700" height="30" alt="图片名称" align="center"><br></div>    </p>
+<a id="more"></a>
+<p>问题的原因是：CocoaPods的版本太低  </p>
+<p>解决问题：  </p>
+<ul>
+<li><p>检查gem ruby版本（建议 2.6.x 以上）<br>gem -v</p>
+</li>
+<li><p>升级gem版本<br>如果你现在使用的源是<a href="https://rubygems.org/请换成https://gems.ruby-china.org/" target="_blank" rel="external">https://rubygems.org/请换成https://gems.ruby-china.org/</a></p>
+<p> 移除现有Ruby默认源<br> gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a><br> 使用新的源<br> gem sources -a  <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a><br> 验证新源是否替换成功<br> gem sources -l  </p>
+</li>
+<li><p>安装CocoaPods<br>(1) sudo gem install -n /usr/local/bin cocoapods<br>输入电脑密码, 回车等待.<br>(2) pod setup  </p>
+</li>
+</ul>
+<p>版本更新：sudo gem install cocoapods –pre</p>
+<p>安装或更新完毕检查版本：pod –version再次执行pod install就可以了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;执行pod install时出现如下信息：&lt;br&gt;&lt;br&gt;    &lt;div align=&quot;center,margin-top=&quot; 5px=&quot;&quot;&gt;&lt;br&gt;    &lt;img src=&quot;https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-09-0911.27.51.png?raw=true&quot; width=&quot;700&quot; height=&quot;30&quot; alt=&quot;图片名称&quot; align=&quot;center&quot;&gt;&lt;br&gt;&lt;/div&gt;    &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://LiJiang.com/tags/iOS/"/>
+    
+      <category term="CocoaPods" scheme="http://LiJiang.com/tags/CocoaPods/"/>
+    
+  </entry>
   
   <entry>
     <title>[转]iOS第三方库汇总</title>
