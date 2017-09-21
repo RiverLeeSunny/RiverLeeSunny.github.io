@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true">
 <meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.56.png?raw=true">
-<meta property="og:updated_time" content="2017-09-03T10:28:09.000Z">
+<meta property="og:updated_time" content="2017-09-21T11:35:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android mvp模式+rxjava+Retrofit">
 <meta name="twitter:description" content="前言最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：示例代码下载demo   整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。">
@@ -193,7 +193,7 @@ var _hmt = _hmt || [];
 <p>整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  </p>
 <a id="more"></a>
 <h2 id="mvp模式"><a href="#mvp模式" class="headerlink" title="mvp模式"></a>mvp模式</h2><p>相信大家对mvc模式已经并不陌生,mvc(Model-View-Controller)，其中M指的是模型层、V指的是视图层、C指的是控制层，三者的关系如下：<br> <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.37.png?raw=true" width="480" height="200" alt="图片名称" align="center"><br></div> </p>
-<p>在mvc模式中view层不仅通过Controller和model层打交道而且它还可以直接访问model，从而，View里会包含Model信息，不可避免的还要包括一些业务逻辑导致要更改View也是比较困难的，至少那些业务逻辑是无法重用的，Controller并没有完全分离View和Model</p>
+<p>在MVC模式中View层不仅通过Controller和model层打交道而且它还可以直接访问model，所以View里会包含Model信息，不可避免的还要包括一些业务逻辑导致要更改View也是比较困难的，至少那些业务逻辑是无法重用的，Controller并没有达到完全分离View和Model的目的</p>
 <p>在MVP里，Presenter完全把Model和View进行了分离，主要的程序逻辑在Presenter里实现。而且，Presenter与具体的View是通过定义好的接口进行交互的，从而使得在变更View时候可以保持Presenter的不变，即重用！如图：<br> <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-27%2011.46.56.png?raw=true" width="480" height="200" alt="图片名称" align="center"><br></div> </p>
 <ul>
 <li>mvp的优点</li>
@@ -608,10 +608,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
@@ -621,6 +617,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
             
             <div class="clearfix"></div>
