@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-10-28T12:35:50.000Z</updated>
+  <updated>2017-10-28T12:45:59.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -20,21 +20,20 @@
     <link href="http://LiJiang.com/2017/10/28/iOS%E5%BA%94%E7%94%A8%E9%9B%86%E6%88%90httpdns%E6%9C%8D%E5%8A%A1/"/>
     <id>http://LiJiang.com/2017/10/28/iOS应用集成httpdns服务/</id>
     <published>2017-10-28T12:32:41.000Z</published>
-    <updated>2017-10-28T12:35:50.000Z</updated>
+    <updated>2017-10-28T12:45:59.000Z</updated>
     
-    <content type="html"><![CDATA[<p>##httpdns服务解决的问题<br>我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。<br>至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：<br><a href="https://www.v2ex.com/t/262266" target="_blank" rel="external">https://www.v2ex.com/t/262266</a><br><a href="http://www.cnblogs.com/softidea/p/5325162.html" target="_blank" rel="external">http://www.cnblogs.com/softidea/p/5325162.html</a>  </p>
+    <content type="html"><![CDATA[<h2 id="httpdns服务解决的问题"><a href="#httpdns服务解决的问题" class="headerlink" title="httpdns服务解决的问题"></a>httpdns服务解决的问题</h2><p>我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。<br>至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：<br><a href="https://www.v2ex.com/t/262266" target="_blank" rel="external">https://www.v2ex.com/t/262266</a><br><a href="http://www.cnblogs.com/softidea/p/5325162.html" target="_blank" rel="external">http://www.cnblogs.com/softidea/p/5325162.html</a>  </p>
 <a id="more"></a>
-<p>##接入httpdns的网络环境<br>1.iOS客户端使用https协议（苹果要求虽然现在没有强制但相信这是趋势）<br>2.服务端采用CDN加速   </p>
+<h2 id="接入httpdns的网络环境"><a href="#接入httpdns的网络环境" class="headerlink" title="接入httpdns的网络环境"></a>接入httpdns的网络环境</h2><p>1.iOS客户端使用https协议（苹果要求虽然现在没有强制但相信这是趋势）<br>2.服务端采用CDN加速   </p>
 <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/CDN_https_04.png?raw=true" width="480" height="230" alt="图片名称" align="center"><br></div>
 
-<p>##App端接入httpdns<br>我们接入的是腾讯出品的httpdns服务简称<a href="https://www.dnspod.cn/httpdns" target="_blank" rel="external">D+</a><br>App的简要处理流程图：  </p>
+<h2 id="App端接入httpdns"><a href="#App端接入httpdns" class="headerlink" title="App端接入httpdns"></a>App端接入httpdns</h2><p>我们接入的是腾讯出品的httpdns服务简称<a href="https://www.dnspod.cn/httpdns" target="_blank" rel="external">D+</a><br>App的简要处理流程图：  </p>
 <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/httpdns_01.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div>
 
 <blockquote>
 <p>说明：在域名列表及对应IP部分可以根据业务采用动态更新的策略来提高该部分的可用性  </p>
 </blockquote>
-<p>##https请求IP直连业务场景的解决  </p>
-<ul>
+<h2 id="https请求IP直连业务场景的解决"><a href="#https请求IP直连业务场景的解决" class="headerlink" title="https请求IP直连业务场景的解决"></a>https请求IP直连业务场景的解决</h2><ul>
 <li>问题<br>当客户端在使用https和CDN服务器（CDN的站点往往服务了很多的域名）交互过程中CDN服务器要获取到请求的域名信息用以下发对应的公钥证书和随机数来完成校验过程，但由于客户端采用了HTTPDNS解析域名请求URL中的host会被替换成HTTPDNS解析出来的IP，导致服务器获取到的域名为解析后的IP，无法找到匹配的证书，只能返回默认的证书或者不返回，所以会出现SSL/TLS握手不成功的错误。</li>
 <li><p>解决办法<br>通过设置sni请求参数把域名信息携带过去  </p>
 </li>
@@ -49,7 +48,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;##httpdns服务解决的问题&lt;br&gt;我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。&lt;br&gt;至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：&lt;br&gt;&lt;a href=&quot;https://www.v2ex.com/t/262266&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.v2ex.com/t/262266&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/softidea/p/5325162.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/softidea/p/5325162.html&lt;/a&gt;  &lt;/p&gt;
+      &lt;h2 id=&quot;httpdns服务解决的问题&quot;&gt;&lt;a href=&quot;#httpdns服务解决的问题&quot; class=&quot;headerlink&quot; title=&quot;httpdns服务解决的问题&quot;&gt;&lt;/a&gt;httpdns服务解决的问题&lt;/h2&gt;&lt;p&gt;我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。&lt;br&gt;至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：&lt;br&gt;&lt;a href=&quot;https://www.v2ex.com/t/262266&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.v2ex.com/t/262266&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/softidea/p/5325162.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/softidea/p/5325162.html&lt;/a&gt;  &lt;/p&gt;
     
     </summary>
     
