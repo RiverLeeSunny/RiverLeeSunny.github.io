@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://LiJiang.com">
-  <title>River</title>
+  <title>iOS应用集成httpdns服务 | River</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以梦为马，不负韶光">
-<meta property="og:type" content="website">
-<meta property="og:title" content="River">
-<meta property="og:url" content="http://LiJiang.com/page/2/index.html">
+  <meta name="description" content="##httpdns服务解决的问题我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：https://www.v2ex.com/t/262266http://ww">
+<meta name="keywords" content="iOS,HTTPS,Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS应用集成httpdns服务">
+<meta property="og:url" content="http://LiJiang.com/2017/10/28/iOS应用集成httpdns服务/index.html">
 <meta property="og:site_name" content="River">
-<meta property="og:description" content="以梦为马，不负韶光">
+<meta property="og:description" content="##httpdns服务解决的问题我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：https://www.v2ex.com/t/262266http://ww">
+<meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/CDN_https_04.png?raw=true">
+<meta property="og:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/httpdns_01.png?raw=true">
+<meta property="og:updated_time" content="2017-10-28T12:35:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="River">
-<meta name="twitter:description" content="以梦为马，不负韶光">
+<meta name="twitter:title" content="iOS应用集成httpdns服务">
+<meta name="twitter:description" content="##httpdns服务解决的问题我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：https://www.v2ex.com/t/262266http://ww">
+<meta name="twitter:image" content="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/CDN_https_04.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="River" type="application/atom+xml">
   
@@ -164,114 +169,78 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Android-mvp模式-rxjava-Retrofit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-iOS应用集成httpdns服务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/">Android mvp模式+rxjava+Retrofit</a>
+    <h1 class="article-title" itemprop="name">
+      iOS应用集成httpdns服务
     </h1>
   
 
         
-        <a href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/" class="archive-article-date">
-  	<time datetime="2017-08-28T08:46:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 28 2017</time>
+        <a href="/2017/10/28/iOS应用集成httpdns服务/" class="archive-article-date">
+  	<time datetime="2017-10-28T12:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>10月 28 2017</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近自己整理了下Android的开发框架做为积累以方便后面的开发，特记录如下：<br>示例代码下载<a href="https://github.com/RiverLeeSunny/Mvp-RxRetrofit.git" target="_blank" rel="external">demo</a>  </p>
-<p>整个框架采用已经应用的很广泛并得到了大家认可的mvp模式，mvp用present代替mvc中的C让V变得更纯粹有着良好的复用性。框架中还应用了rxjava响应式编程框架、butterknife注解框架、Retrofit网络库使得代码优雅而流畅。  </p>
-        
-          <a class="article-more-a" href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/#more">more >></a>
-        
+        <p>##httpdns服务解决的问题<br>我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。<br>至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：<br><a href="https://www.v2ex.com/t/262266" target="_blank" rel="external">https://www.v2ex.com/t/262266</a><br><a href="http://www.cnblogs.com/softidea/p/5325162.html" target="_blank" rel="external">http://www.cnblogs.com/softidea/p/5325162.html</a>  </p>
+<a id="more"></a>
+<p>##接入httpdns的网络环境<br>1.iOS客户端使用https协议（苹果要求虽然现在没有强制但相信这是趋势）<br>2.服务端采用CDN加速   </p>
+<div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/CDN_https_04.png?raw=true" width="480" height="230" alt="图片名称" align="center"><br></div>
+
+<p>##App端接入httpdns<br>我们接入的是腾讯出品的httpdns服务简称<a href="https://www.dnspod.cn/httpdns" target="_blank" rel="external">D+</a><br>App的简要处理流程图：  </p>
+<div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/httpdns_01.png?raw=true" width="480" height="350" alt="图片名称" align="center"><br></div>
+
+<blockquote>
+<p>说明：在域名列表及对应IP部分可以根据业务采用动态更新的策略来提高该部分的可用性  </p>
+</blockquote>
+<p>##https请求IP直连业务场景的解决  </p>
+<ul>
+<li>问题<br>当客户端在使用https和CDN服务器（CDN的站点往往服务了很多的域名）交互过程中CDN服务器要获取到请求的域名信息用以下发对应的公钥证书和随机数来完成校验过程，但由于客户端采用了HTTPDNS解析域名请求URL中的host会被替换成HTTPDNS解析出来的IP，导致服务器获取到的域名为解析后的IP，无法找到匹配的证书，只能返回默认的证书或者不返回，所以会出现SSL/TLS握手不成功的错误。</li>
+<li><p>解决办法<br>通过设置sni请求参数把域名信息携带过去  </p>
+</li>
+<li><p>iOS端对于sni参数的设置方法<br>1.iOS上层网络库NSURLConnection/NSURLSession没有提供接口进行SNI字段的配置，只能通过NSURLProtocol拦截来请求设置sni。  </p>
+</li>
+</ul>
+<p>NSURLProtocol这个类我们不能直接使用，我们需要自己创建一个它的子类，在子类中我们需要重写下面几个函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"> /**</div><div class="line"> *  是否拦截处理指定的请求</div><div class="line"> *</div><div class="line"> *  @param request 指定的请求</div><div class="line"> *</div><div class="line"> *  @return 返回YES表示要拦截处理，返回NO表示不拦截处理</div><div class="line"> */</div><div class="line">+ (BOOL)canInitWithRequest:(NSURLRequest *)request  </div><div class="line"></div><div class="line">/*!</div><div class="line"> *@method: NSURLProtocol抽象类必须要实现。通常情况下这里有一个最低的标准：即输入输出请求满足最基本的协议规范一致。因此这里简单的做法可以直接返回。一般情况下我们是不会去更改这个请求的。如果你想更改，  </div><div class="line"> *比如给这个request添加一个title，组合成一个新的http请求。</div><div class="line"> *@parma: 本地HttpRequest请求：request</div><div class="line"> *@return:直接转发</div><div class="line"> */</div><div class="line">+ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request</div><div class="line"></div><div class="line">/**</div><div class="line"> * 开始加载，在该方法中，加载一个请求</div><div class="line"> */</div><div class="line">- (void)startLoading</div><div class="line"></div><div class="line">/**</div><div class="line"> * 取消请求</div><div class="line"> */</div><div class="line">- (void)stopLoading</div></pre></td></tr></table></figure>
+<p>详见：<a href="https://github.com/RiverLeeSunny/CFHTTPDNSHTTPMessageProtocol" target="_blank" rel="external">https://github.com/RiverLeeSunny/CFHTTPDNSHTTPMessageProtocol</a>  </p>
+<p>2.第三方网络库库asi-http-request是在CFNetwork基础上封装的是支持SNI设置的但这个库好久不更新维护了，如果你们App有一直在使用可以研究下怎么设置。</p>
+
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/28/Android-mvp模式-rxjava-Retrofit/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/wechat.jpg?raw=true">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-邓白氏编码申请流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/15/邓白氏编码申请流程/">邓白氏编码申请流程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/15/邓白氏编码申请流程/" class="archive-article-date">
-  	<time datetime="2017-08-15T11:06:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 15 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近申请邓白氏编码用于申请苹果公司开发者账号，整个申请流畅整理了一下供大家参考如下：<br>1.访问<a href="https://idmsa.apple.com/IDMSWebAuth/login?appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&amp;path=%2Faccount%2F&amp;rv=1" target="_blank" rel="external">苹果开发者网站</a>如下图：  </p>
- <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-08-155.28.18.png?raw=true" width="480" height="300" alt="图片名称" align="center"><br></div> 
-
-<p>如果已经有Apple ID直接登录，没有点Create Apple ID按钮创建。  </p>
-        
-          <a class="article-more-a" href="/2017/08/15/邓白氏编码申请流程/#more">more >></a>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -284,85 +253,13 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/15/邓白氏编码申请流程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于Hexo-yilia主题域名绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/06/关于Hexo-yilia主题域名绑定/">关于Hexo yilia主题域名绑定</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/06/关于Hexo-yilia主题域名绑定/" class="archive-article-date">
-  	<time datetime="2017-08-06T09:28:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 6 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>相信有很多程序员的个人博客都是github page + Hexo搭建的，搭建好后的访问地址大都是yourname.github.io格式的域名比较长而且也不够个性，如果想拥有自己的的域名可以去阿里云的万网申请很便宜。前段时间为自己的博客绑定了域名<a href="http://riversunny.top" target="_blank" rel="external">riversunny.top</a>，过程中遇到了些问题所以记录下过程：</p>
-        
-          <a class="article-more-a" href="/2017/08/06/关于Hexo-yilia主题域名绑定/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其它</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTTPS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
         		</li>
       		
 		</ul>
@@ -371,16 +268,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/06/关于Hexo-yilia主题域名绑定/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://LiJiang.com/2017/10/28/iOS应用集成httpdns服务/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/13/Xcode9-无线wifi链接iOS设备进行开发调试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Xcode9 无线wifi链接iOS设备进行开发调试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -395,176 +351,30 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-App性能优化-ListView、Bitmap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/Android-App性能优化-ListView、Bitmap/">Android App性能优化-ListView、Bitmap</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/02/Android-App性能优化-ListView、Bitmap/" class="archive-article-date">
-  	<time datetime="2017-08-02T14:05:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 2 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="ListView优化"><a href="#ListView优化" class="headerlink" title="ListView优化"></a>ListView优化</h3><ul>
-<li>1.使用ViewHolder模式来提高效率<br>ViewHolder模式充分利用了ListView的视图缓存机制，避免每次在调用getView()的时候都去通过findViewById()实例化控件。据测试使用ViewHolder将提高50%以上的效率，所以ViewHolder是提高效率的一个重要方法。使用ViewHolder只需要在自定义Adapter定义一个内部类ViewHolder并将布局中的控件作为成员变量，代码如下：  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> ImageView icon;</div><div class="line">    <span class="keyword">public</span> TextView text;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
-<p>接下来只需要通过getView()方法中通过视图缓存机制重用缓存即可，代码如下：  </p>
-        
-          <a class="article-more-a" href="/2017/08/02/Android-App性能优化-ListView、Bitmap/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/Android-App性能优化-ListView、Bitmap/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Android-App性能优化-布局优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/Android-App性能优化-布局优化/">Android-App性能优化-布局优化</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/02/Android-App性能优化-布局优化/" class="archive-article-date">
-  	<time datetime="2017-08-01T16:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 2 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>inculde 标签的使用将需要重用的布局写在一个单独的xml文件中，再使用include标签复用到其他布局中，如下所示： </li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line"><span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line"><span class="attr">android:background</span>=<span class="string">"#ffffff"</span>&gt;</div><div class="line"><span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/toolbar"</span> /&gt;</span></div><div class="line">	...</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/02/Android-App性能优化-布局优化/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/Android-App性能优化-布局优化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -600,8 +410,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
