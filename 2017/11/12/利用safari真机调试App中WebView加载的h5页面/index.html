@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://LiJiang.com">
-  <title>River</title>
+  <title>利用safari真机调试App中WebView加载的h5页面 | River</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以梦为马，不负韶光">
-<meta property="og:type" content="website">
-<meta property="og:title" content="River">
-<meta property="og:url" content="http://LiJiang.com/index.html">
+  <meta name="description" content="现在App中越来越多的H5页面导致不论是前端开发还是原生开发人员都需要了解移动端调试h5页面的技巧。当然大部分可以在PC上调试但有些场景下（比如直接和手机交互的场景）还是需要在真机上调试的尤其是调试嵌入App中的H5页面。苹果当然也考虑到了所以利用safari可以很方便的调试在手机上浏览的H5页面包括我们在App中浏览的H5页面。">
+<meta name="keywords" content="iOS,H5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用safari真机调试App中WebView加载的h5页面">
+<meta property="og:url" content="http://LiJiang.com/2017/11/12/利用safari真机调试App中WebView加载的h5页面/index.html">
 <meta property="og:site_name" content="River">
-<meta property="og:description" content="以梦为马，不负韶光">
+<meta property="og:description" content="现在App中越来越多的H5页面导致不论是前端开发还是原生开发人员都需要了解移动端调试h5页面的技巧。当然大部分可以在PC上调试但有些场景下（比如直接和手机交互的场景）还是需要在真机上调试的尤其是调试嵌入App中的H5页面。苹果当然也考虑到了所以利用safari可以很方便的调试在手机上浏览的H5页面包括我们在App中浏览的H5页面。">
+<meta property="og:updated_time" content="2017-11-12T05:51:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="River">
-<meta name="twitter:description" content="以梦为马，不负韶光">
+<meta name="twitter:title" content="利用safari真机调试App中WebView加载的h5页面">
+<meta name="twitter:description" content="现在App中越来越多的H5页面导致不论是前端开发还是原生开发人员都需要了解移动端调试h5页面的技巧。当然大部分可以在PC上调试但有些场景下（比如直接和手机交互的场景）还是需要在真机上调试的尤其是调试嵌入App中的H5页面。苹果当然也考虑到了所以利用safari可以很方便的调试在手机上浏览的H5页面包括我们在App中浏览的H5页面。">
   
     <link rel="alternative" href="/atom.xml" title="River" type="application/atom+xml">
   
@@ -164,16 +166,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-利用safari真机调试App中WebView加载的h5页面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-利用safari真机调试App中WebView加载的h5页面" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/12/利用safari真机调试App中WebView加载的h5页面/">利用safari真机调试App中WebView加载的h5页面</a>
+    <h1 class="article-title" itemprop="name">
+      利用safari真机调试App中WebView加载的h5页面
     </h1>
   
 
@@ -189,11 +189,51 @@ var _hmt = _hmt || [];
         <blockquote>
 <p>现在App中越来越多的H5页面导致不论是前端开发还是原生开发人员都需要了解移动端调试h5页面的技巧。当然大部分可以在PC上调试但有些场景下（比如直接和手机交互的场景）还是需要在真机上调试的尤其是调试嵌入App中的H5页面。苹果当然也考虑到了所以利用safari可以很方便的调试在手机上浏览的H5页面包括我们在App中浏览的H5页面。  </p>
 </blockquote>
-        
-          <a class="article-more-a" href="/2017/11/12/利用safari真机调试App中WebView加载的h5页面/#more">more >></a>
-        
+<a id="more"></a>  
+<ul>
+<li><p>设置Mac上的safari为开发者模式<br>【Safari】-&gt;【偏好设置】-&gt;【高级】-&gt;【在菜单栏中显示“开发”菜单】勾选</p>
+<div align="center"><br>&lt;img src=<a href="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_2.png?raw=true" target="_blank" rel="external">https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_2.png?raw=true</a>“ width = “500” height = “350” alt=”图片名称” align=center /&gt;<br></div>
+</li>
+<li><p>真机（模拟器）的设置<br>【设置】-&gt;【Safari】-&gt;【高级】-&gt;【Web检查器】打开  </p>
+<div align="center"><br>&lt;img src=<a href="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_11.png?raw=true" target="_blank" rel="external">https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_11.png?raw=true</a>“ width = “500” height = “250” alt=”图片名称” align=center /&gt;<br></div>  
+</li>
+<li><p>用真机（模拟器）打开App中你要调试的H5页面<br>【开发】-&gt;【xxx的iPhone】-&gt;【选择正在调试的网站】  </p>
+<div align="center"><br>&lt;img src=<a href="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_12.png?raw=true" target="_blank" rel="external">https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_12.png?raw=true</a>“ width = “500” height = “100” alt=”图片名称” align=center /&gt;<br></div>  
+
+<p>打开调试页面就可以调试样式或者进行断点调试各种操作了   </p>
+</li>
+</ul>
+<div align="center"><br> &lt;img src=<a href="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_13.png?raw=true" target="_blank" rel="external">https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171112_13.png?raw=true</a>“ width = “500” height = “350” alt=”图片名称” align=center /&gt;<br></div> 
+
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/wechat.jpg?raw=true">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -217,16 +257,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/12/利用safari真机调试App中WebView加载的h5页面/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://LiJiang.com/2017/11/12/利用safari真机调试App中WebView加载的h5页面/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/28/iOS应用集成httpdns服务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS应用集成httpdns服务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -241,344 +340,30 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-iOS应用集成httpdns服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/28/iOS应用集成httpdns服务/">iOS应用集成httpdns服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/28/iOS应用集成httpdns服务/" class="archive-article-date">
-  	<time datetime="2017-10-28T12:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>10月 28 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="httpdns服务解决的问题"><a href="#httpdns服务解决的问题" class="headerlink" title="httpdns服务解决的问题"></a>httpdns服务解决的问题</h2><p>我们的App时常会出现请求失败或是请求的接口返回错误数据的情况，一般引起这些问题的原因大都和你的域名解析有关域名解析错误、域名被劫持。这些问题严重影响用户体验，为了解决这些问题我们需要接入httpdns服务。<br>至于为什么会出现域名解析的诸多问题以及httpdns怎么解决的可以参看下面两篇文章：<br><a href="https://www.v2ex.com/t/262266" target="_blank" rel="external">https://www.v2ex.com/t/262266</a><br><a href="http://www.cnblogs.com/softidea/p/5325162.html" target="_blank" rel="external">http://www.cnblogs.com/softidea/p/5325162.html</a>  </p>
-        
-          <a class="article-more-a" href="/2017/10/28/iOS应用集成httpdns服务/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTTPS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/28/iOS应用集成httpdns服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Xcode9-无线wifi链接iOS设备进行开发调试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/13/Xcode9-无线wifi链接iOS设备进行开发调试/">Xcode9 无线wifi链接iOS设备进行开发调试</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/13/Xcode9-无线wifi链接iOS设备进行开发调试/" class="archive-article-date">
-  	<time datetime="2017-10-13T08:35:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>10月 13 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>厉害了，最近使用xcode9开发发现竟然支持使用wifi链接iOS和tvOS设备进行程序的调试，但对软件环境有要求：<br>Xcode 9.0 以上版本<br>macOS 10.12.4以上版本<br>iOS 11.0以上版本<br>tvOS 11.0以上版本  </p>
-        
-          <a class="article-more-a" href="/2017/10/13/Xcode9-无线wifi链接iOS设备进行开发调试/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Xcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/13/Xcode9-无线wifi链接iOS设备进行开发调试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Moya-RxSwift-ObjectMapper实现MVVM模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/18/Moya-RxSwift-ObjectMapper实现MVVM模式/">Moya+RxSwift+ObjectMapper实现MVVM模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/18/Moya-RxSwift-ObjectMapper实现MVVM模式/" class="archive-article-date">
-  	<time datetime="2017-09-18T11:16:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>9月 18 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="MVVM模式简单介绍"><a href="#MVVM模式简单介绍" class="headerlink" title="MVVM模式简单介绍"></a>MVVM模式简单介绍</h2><p>具体详见<a href="https://github.com/RiverLeeSunny/Moya_RxSwift_ObjectMapper.git" target="_blank" rel="external">demo</a><br>简单来说MVVM (Model–view–viewmodel) 是为了解决 MVC模式中C（controller）部分随着业务的复杂过于臃肿，代码的可维护性差、复用性低这些问题。   </p>
-        
-          <a class="article-more-a" href="/2017/09/18/Moya-RxSwift-ObjectMapper实现MVVM模式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/18/Moya-RxSwift-ObjectMapper实现MVVM模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/">The version of CocoaPods used to generate the lockfile (1.0.1) is higher than the version of the current executable (1.0.0)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/" class="archive-article-date">
-  	<time datetime="2017-09-09T03:25:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>9月 9 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>执行pod install时出现如下信息：  </p>
-<div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-09-0911.27.51.png?raw=true" width="700" height="30" alt="图片名称" align="center"><br></div>  
-
-<p>问题的原因是：CocoaPods的版本太低    </p>
-        
-          <a class="article-more-a" href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CocoaPods</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -614,8 +399,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
