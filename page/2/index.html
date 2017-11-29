@@ -166,6 +166,89 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/">The version of CocoaPods used to generate the lockfile (1.0.1) is higher than the version of the current executable (1.0.0)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/" class="archive-article-date">
+  	<time datetime="2017-09-09T03:25:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>9月 9 2017</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>执行pod install时出现如下信息：  </p>
+<div align="center"><br><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2017-09-0911.27.51.png?raw=true" width="700" height="30" alt="图片名称" align="center"><br></div>  
+
+<p>问题的原因是：CocoaPods的版本太低    </p>
+        
+          <a class="article-more-a" href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CocoaPods</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/09/The-version-of-CocoaPods-used-to-generate-the-lockfile-1-0-1-is-higher-than-the-version-of-the-current-executable-1-0-0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-转-iOS第三方库汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -482,86 +565,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-App性能优化-ListView、Bitmap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/Android-App性能优化-ListView、Bitmap/">Android App性能优化-ListView、Bitmap</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/02/Android-App性能优化-ListView、Bitmap/" class="archive-article-date">
-  	<time datetime="2017-08-02T14:05:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>8月 2 2017</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="ListView优化"><a href="#ListView优化" class="headerlink" title="ListView优化"></a>ListView优化</h3><ul>
-<li>1.使用ViewHolder模式来提高效率<br>ViewHolder模式充分利用了ListView的视图缓存机制，避免每次在调用getView()的时候都去通过findViewById()实例化控件。据测试使用ViewHolder将提高50%以上的效率，所以ViewHolder是提高效率的一个重要方法。使用ViewHolder只需要在自定义Adapter定义一个内部类ViewHolder并将布局中的控件作为成员变量，代码如下：  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> ImageView icon;</div><div class="line">    <span class="keyword">public</span> TextView text;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
-<p>接下来只需要通过getView()方法中通过视图缓存机制重用缓存即可，代码如下：  </p>
-        
-          <a class="article-more-a" href="/2017/08/02/Android-App性能优化-ListView、Bitmap/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/Android-App性能优化-ListView、Bitmap/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -676,11 +679,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,6 +696,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">React Native</a>
               </li>
              
               <li class="article-tag-list-item">
