@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-12-11T15:36:39.000Z</updated>
+  <updated>2017-12-11T16:09:31.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="http://LiJiang.com/2017/12/11/%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8%E9%9B%86%E6%88%90React-Native/"/>
     <id>http://LiJiang.com/2017/12/11/原生应用集成React-Native/</id>
     <published>2017-12-11T15:28:49.000Z</published>
-    <updated>2017-12-11T15:36:39.000Z</updated>
+    <updated>2017-12-11T16:09:31.000Z</updated>
     
-    <content type="html"><![CDATA[<p>如果一个新的项目我们在技术选型阶段确定使用react-native进行开发，那么在开发阶段就不存在这样的问题，按照<a href="http://riversunny.top/2017/11/29/React-Native环境搭建和项目工程创建/" target="_blank" rel="external">上篇文章</a>介绍的搭建环境创建项目就可以了。但现实情况是好多原生的项目想采用react-native开发部分组件，这时我们就不得不在原生项目中集成react-native框架。其实也简单我们看下直接用react-native创建的工程目录结构： </p>
-<a id="more"></a>  
-<p><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171211_1.png?raw=true" alt="《丹宁执着》封面图片">   </p>
+    <content type="html"><![CDATA[<p>如果一个新的项目我们在技术选型阶段确定使用<code>react-native</code>进行开发，那么在开发阶段就不存在这样的问题，按照<a href="http://riversunny.top/2017/11/29/React-Native环境搭建和项目工程创建/" target="_blank" rel="external">上篇文章</a>介绍的搭建环境创建项目就可以了。但现实情况是好多原生的项目想采用<code>react-native</code>开发部分组件，这时我们就不得不在原生项目中集成<code>react-native</code>框架。其实也简单我们看下直接用<code>react-native</code>创建的工程目录结构：<br><a id="more"></a>   </p>
+<div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171211_1.png?raw=true" width="700" height="400" alt="图片名称" align="center"><br></div>   
+
+
 <blockquote>
 <p><code>App.js</code>  :  react-native代码文件<br><code>app.json</code> : 工程信息文件<br><code>index.js</code> : 工程入口文件<br><code>package.json</code> : 定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。<br><code>node_modules文件夹</code> :包含了工程依赖的各种组件  </p>
 </blockquote>
@@ -39,14 +40,15 @@
 <blockquote>
 <p>在项目根目录执行以下命令创建文件：<br>$ touch index.js  </p>
 </blockquote>
-<pre><code class="json">import { AppRegistry } from 'react-native';
-import App from './App';
+<pre><code class="javascript"><span class="keyword">import</span> { AppRegistry } <span class="keyword">from</span> <span class="string">'react-native'</span>;
+<span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>;
 
-AppRegistry.registerComponent('Native-RN-Project', () =&gt; App);
+AppRegistry.registerComponent(<span class="string">'Native-RN-Project'</span>, () =&gt; App);
 </code></pre>
 <blockquote>
-<p>Native-RN-Project是整体js模块（即你所有的js代码）的名称。你在iOS原生代码中添加React Native视图时会用到这个名称。<br>5.创建app.json和app.js文件</p>
+<p>Native-RN-Project是整体js模块（即你所有的js代码）的名称。你在iOS原生代码中添加React Native视图时会用到这个名称。  </p>
 </blockquote>
+<p>5.创建app.json和app.js文件</p>
 <p>app.json   </p>
 <pre><code class="json">{
   <span class="attr">"name"</span>: <span class="string">"Native-RN-Project"</span>,
@@ -54,30 +56,30 @@ AppRegistry.registerComponent('Native-RN-Project', () =&gt; App);
 }
 </code></pre>
 <p>在app.js中添加你自己的组件  </p>
-<pre><code class="json">/**
+<pre><code class="javascript"><span class="comment">/**
  * Sample React Native App
  * https://github.com/facebook/react-native
  * @flow
- */
+ */</span>
 
-import React, { Component } from 'react';
-import {
+<span class="keyword">import</span> React, { Component } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> {
   Platform,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} <span class="keyword">from</span> <span class="string">'react-native'</span>;
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+<span class="keyword">const</span> instructions = Platform.select({
+  <span class="attr">ios</span>: <span class="string">'Press Cmd+R to reload,\n'</span> +
+    <span class="string">'Cmd+D or shake for dev menu'</span>,
+  <span class="attr">android</span>: <span class="string">'Double tap R on your keyboard to reload,\n'</span> +
+    <span class="string">'Shake or press menu button for dev menu'</span>,
 });
 
-export default class App extends Component&lt;{}&gt; {
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span>&lt;</span>{}&gt; {
   render() {
-    return (
+    <span class="keyword">return</span> (
       &lt;View style={styles.container}&gt;
         &lt;Text style={styles.welcome}&gt;
           Welcome to React Native!
@@ -93,22 +95,22 @@ export default class App extends Component&lt;{}&gt; {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+<span class="keyword">const</span> styles = StyleSheet.create({
+  <span class="attr">container</span>: {
+    <span class="attr">flex</span>: <span class="number">1</span>,
+    <span class="attr">justifyContent</span>: <span class="string">'center'</span>,
+    <span class="attr">alignItems</span>: <span class="string">'center'</span>,
+    <span class="attr">backgroundColor</span>: <span class="string">'#F5FCFF'</span>,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  <span class="attr">welcome</span>: {
+    <span class="attr">fontSize</span>: <span class="number">20</span>,
+    <span class="attr">textAlign</span>: <span class="string">'center'</span>,
+    <span class="attr">margin</span>: <span class="number">10</span>,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  <span class="attr">instructions</span>: {
+    <span class="attr">textAlign</span>: <span class="string">'center'</span>,
+    <span class="attr">color</span>: <span class="string">'#333333'</span>,
+    <span class="attr">marginBottom</span>: <span class="number">5</span>,
   },
 });
 </code></pre>
@@ -159,7 +161,7 @@ end
     
     <summary type="html">
     
-      &lt;p&gt;如果一个新的项目我们在技术选型阶段确定使用react-native进行开发，那么在开发阶段就不存在这样的问题，按照&lt;a href=&quot;http://riversunny.top/2017/11/29/React-Native环境搭建和项目工程创建/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上篇文章&lt;/a&gt;介绍的搭建环境创建项目就可以了。但现实情况是好多原生的项目想采用react-native开发部分组件，这时我们就不得不在原生项目中集成react-native框架。其实也简单我们看下直接用react-native创建的工程目录结构： &lt;/p&gt;
+      &lt;p&gt;如果一个新的项目我们在技术选型阶段确定使用&lt;code&gt;react-native&lt;/code&gt;进行开发，那么在开发阶段就不存在这样的问题，按照&lt;a href=&quot;http://riversunny.top/2017/11/29/React-Native环境搭建和项目工程创建/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上篇文章&lt;/a&gt;介绍的搭建环境创建项目就可以了。但现实情况是好多原生的项目想采用&lt;code&gt;react-native&lt;/code&gt;开发部分组件，这时我们就不得不在原生项目中集成&lt;code&gt;react-native&lt;/code&gt;框架。其实也简单我们看下直接用&lt;code&gt;react-native&lt;/code&gt;创建的工程目录结构：&lt;br&gt;
     
     </summary>
     
