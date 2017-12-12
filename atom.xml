@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://LiJiang.com/"/>
-  <updated>2017-12-12T05:07:01.000Z</updated>
+  <updated>2017-12-12T05:54:41.000Z</updated>
   <id>http://LiJiang.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://LiJiang.com/2017/12/11/%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8%E9%9B%86%E6%88%90React-Native/"/>
     <id>http://LiJiang.com/2017/12/11/原生应用集成React-Native/</id>
     <published>2017-12-11T15:28:49.000Z</published>
-    <updated>2017-12-12T05:07:01.000Z</updated>
+    <updated>2017-12-12T05:54:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>如果一个新的项目我们在技术选型阶段确定使用<code>react-native</code>进行开发，那么在开发阶段就不存在这样的问题，按照<a href="http://riversunny.top/2017/11/29/React-Native环境搭建和项目工程创建/" target="_blank" rel="external">上篇文章</a>介绍的搭建环境创建项目就可以了。但现实情况是好多原生的项目想采用<code>react-native</code>开发部分组件，这时我们就不得不在原生项目中集成<code>react-native</code>框架。其实也简单我们看下直接用<code>react-native</code>创建的工程目录结构：<br><a id="more"></a>   </p>
 <div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171211_1.png?raw=true" width="700" height="400" alt="图片名称" align="center"><br></div>   
@@ -158,6 +158,7 @@ end
 <p><img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171211_2.png?raw=true" alt="《丹宁执着》封面图片">   </p>
 <p>到此我们就集成完毕了，可以测试集成结果了 ：<br>运行前先启动开发服务器Packager，进入到项目根目录执行<code>npm start</code><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/Snip20171212_5.png?raw=true" alt="《丹宁执着》封面图片"> </p>
 <p>接下来用xcode运行就可以了。</p>
+<p>demo下载链接<a href="https://github.com/RiverLeeSunny/Native-RN-Project" target="_blank" rel="external">https://github.com/RiverLeeSunny/Native-RN-Project</a></p>
 ]]></content>
     
     <summary type="html">
@@ -167,9 +168,9 @@ end
     </summary>
     
     
-      <category term="React Native" scheme="http://LiJiang.com/tags/React-Native/"/>
-    
       <category term="iOS" scheme="http://LiJiang.com/tags/iOS/"/>
+    
+      <category term="React Native" scheme="http://LiJiang.com/tags/React-Native/"/>
     
   </entry>
   
@@ -207,9 +208,9 @@ end
     </summary>
     
     
-      <category term="React Native" scheme="http://LiJiang.com/tags/React-Native/"/>
-    
       <category term="iOS" scheme="http://LiJiang.com/tags/iOS/"/>
+    
+      <category term="React Native" scheme="http://LiJiang.com/tags/React-Native/"/>
     
   </entry>
   
