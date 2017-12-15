@@ -75,9 +75,9 @@
     <link href="http://LiJiang.com/2017/11/29/React-Native%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E9%A1%B9%E7%9B%AE%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA/"/>
     <id>http://LiJiang.com/2017/11/29/React-Native环境搭建和项目工程创建/</id>
     <published>2017-11-29T14:59:27.000Z</published>
-    <updated>2017-11-29T15:51:12.000Z</updated>
+    <updated>2017-12-15T08:08:05.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>React Native是基于<code>React</code>设计的.<br>2013年Facebook开源了<code>React</code> <code>Github</code>地址：<a href="https://github.com/facebook/react" target="_blank" rel="external">https://github.com/facebook/react</a><br>2015年Facebook开源了<code>React Native</code>在<code>GitHub</code>上的网址：<a href="https://github.com/facebook/react-native" target="_blank" rel="external">https://github.com/facebook/react-native</a>  </p>
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>React Native</code>作为时下最热的技术之一，一直备受关注有人认为是移动端未来的趋势，有人则不那么看好尤其在facebook开源许可证问题出来后。个人认为不管怎样前端技术对原生App技术的侵入已势不可挡,而<code>React Native</code>作为排头兵即便倒下了还有Weex、ionic等等，所谓知己知彼我们还是需多了解。个人在之前有接触和学习<code>React Native</code>遂准备整理记录下。<br>React Native是基于<code>React</code>设计的.<br>2013年Facebook开源了<code>React</code> <code>Github</code>地址：<a href="https://github.com/facebook/react" target="_blank" rel="external">https://github.com/facebook/react</a><br>2015年Facebook开源了<code>React Native</code>在<code>GitHub</code>上的网址：<a href="https://github.com/facebook/react-native" target="_blank" rel="external">https://github.com/facebook/react-native</a>  </p>
 <a id="more"></a>
 <p>React Native旨在提高多平台的开发效率，Facebook强调<code>Learn once, write anywhere</code>只要基本掌握了React和JSX，同时了解相关平台（iOS、Android、Web）的知识就可以在多个平台上开发应用了。<br>框架原理图如下：</p>
 <p><div align="center"><br> <img src="https://github.com/RiverLeeSunny/markdownPic/blob/master/image_folder/2428275-29d1662bcaddbcc2.png?raw=true" width="480" height="230" alt="图片名称" align="center"><br></div><br>详情可参阅：<a href="http://www.jianshu.com/p/978c4bd3a759" target="_blank" rel="external">http://www.jianshu.com/p/978c4bd3a759</a></p>
@@ -99,7 +99,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;React Native是基于&lt;code&gt;React&lt;/code&gt;设计的.&lt;br&gt;2013年Facebook开源了&lt;code&gt;React&lt;/code&gt; &lt;code&gt;Github&lt;/code&gt;地址：&lt;a href=&quot;https://github.com/facebook/react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/facebook/react&lt;/a&gt;&lt;br&gt;2015年Facebook开源了&lt;code&gt;React Native&lt;/code&gt;在&lt;code&gt;GitHub&lt;/code&gt;上的网址：&lt;a href=&quot;https://github.com/facebook/react-native&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/facebook/react-native&lt;/a&gt;  &lt;/p&gt;
+      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;&lt;code&gt;React Native&lt;/code&gt;作为时下最热的技术之一，一直备受关注有人认为是移动端未来的趋势，有人则不那么看好尤其在facebook开源许可证问题出来后。个人认为不管怎样前端技术对原生App技术的侵入已势不可挡,而&lt;code&gt;React Native&lt;/code&gt;作为排头兵即便倒下了还有Weex、ionic等等，所谓知己知彼我们还是需多了解。个人在之前有接触和学习&lt;code&gt;React Native&lt;/code&gt;遂准备整理记录下。&lt;br&gt;React Native是基于&lt;code&gt;React&lt;/code&gt;设计的.&lt;br&gt;2013年Facebook开源了&lt;code&gt;React&lt;/code&gt; &lt;code&gt;Github&lt;/code&gt;地址：&lt;a href=&quot;https://github.com/facebook/react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/facebook/react&lt;/a&gt;&lt;br&gt;2015年Facebook开源了&lt;code&gt;React Native&lt;/code&gt;在&lt;code&gt;GitHub&lt;/code&gt;上的网址：&lt;a href=&quot;https://github.com/facebook/react-native&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/facebook/react-native&lt;/a&gt;  &lt;/p&gt;
     
     </summary>
     
